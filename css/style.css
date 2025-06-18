@@ -4,6 +4,9 @@
 @import "./global/footer.css";
 
 /* utilidades */
-@import "./utilidades/componentes.css";
-@import "./utilidades/cores.css";
-@import "./utilidades//tipografia.css"
+@import "./utilities/components.css";
+@import "./utilities/colors.css";
+@import "./utilities/typography.css";
+
+/* books */
+@import "./books/search.css";
