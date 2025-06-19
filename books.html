@@ -13,7 +13,7 @@
     <header class="container">
         <nav>
             <ul class="menu-list">
-                <li><a href="#" class="menu-item home" aria-label="Página inicial"><img src="./img/Home.svg" alt="""></a></li>
+                <li><a href="#" class="menu-item home" aria-label="Página inicial"><img src="./img/home.svg" alt="""></a></li>
                 <li><a href="/Minha-Biblioteca/books.html" class="menu-item">Livros</a></li>
                 <li><a href="#" class="menu-item">Usuários</a></li>
                 <li class="menu-item"><img src="./img/badfallen.jpg" alt="Foto de perfil do usuário" class="icon"></li>
@@ -30,6 +30,31 @@
             <input type="text" placeholder="Procure por nome, ISBN ou gênero..." class="search-form-input">
             <button class="search-form-button"><img src="./img/search.svg" alt="Ícone de uma lupa para busca."> <p>Buscar</p></button>    
         </form>
+    </section>
+    <section class="container">
+        <table class="book-table">
+            <thead class="book-table-head">
+                <tr>
+                    <th>ISBN</th>
+                    <th>TÍTULO</th>
+                    <th>GÊNERO</th>
+                    <th>STATUS</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody class="book-table-body">
+                <tr>
+                    <td>5146846548465</td>
+                    <td>O Senhor dos anéis</td>
+                    <td>Aventura</td>
+                    <td>Livre</td>
+                    <td class="book-table-body-actions">
+                        <button><img src="./img/lend.svg" alt=""></button>
+                        <button><img src="./img/edit.svg" alt=""></button>
+                        <button><img src="./img/delete.svg" alt=""></button>
+                    </td>
+                </tr>
+            </tbody>
     </section>
     <footer>
 

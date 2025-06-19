@@ -1,0 +1,34 @@
+.book-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.book-table th, .book-table td{
+    font-family: 'Manrope';
+    text-align: left;
+    padding: 20px 8px;
+    border-bottom: 1px solid #E7EAEE;
+}
+
+.book-table-head th{
+    color: var(--color-1);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.book-table-body td{
+    color: var(--color-3);
+    font-size: 1rem;
+}
+
+.book-table-body-actions{
+    display: flex;
+    gap: 8px;
+}
+
+.book-table-body-actions button{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    padding: 0px;
+}
