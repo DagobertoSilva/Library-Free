@@ -1,19 +1,53 @@
-function activeClass() {
-    const currentPage = window.location.pathname;
-    const menuItems = document.querySelectorAll(".menu-list .menu-item");
-    menuItems.forEach(item => {
-        const itemHref = item.getAttribute("href");
-        if (currentPage.includes(itemHref) && itemHref !== "/") {
-            item.classList.add("active");
-        }
-    });
-}
-activeClass();
+let allBooks = [];
+let currentPage = 1;
+let booksPerPage = 8;
 
-async function loadBooks(){
+const prevButton = document.querySelector("#btn-previous");
+const pageIndex = document.querySelector("#page-index")
+const nextButton = document.querySelector("#btn-next");
+
+async function init(){
+    response = await fetch("./books.json");
+    allBooks = await response.json();
+    pageIndex.textContent = currentPage;
+    lastPage = Math.ceil(allBooks.length / booksPerPage);
+    prevButton.addEventListener('click', previousPage)
+    nextButton.addEventListener('click', nextPage)
+    displayPage();
+}
+init();
+
+function previousPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        displayPage();
+    }
+}
+
+function nextPage() {
+    if (currentPage < lastPage) {
+        currentPage++;
+        displayPage();
+    }
+}
+
+function updateButtonState() {
+    prevButton.disabled = currentPage === 1;
+    pageIndex.textContent = currentPage;
+    nextButton.disabled = currentPage === lastPage;
+}
+
+function displayPage(){
+    const startIndex = (currentPage - 1) * booksPerPage;
+    const endIndex = startIndex + booksPerPage;
+    const paginatedBooks = allBooks.slice(startIndex, endIndex);
+    renderBooks(paginatedBooks);
+    updateButtonState();
+}
+
+async function renderBooks(books){
     const tbody = document.querySelector(".book-table-body");
-    const response = await fetch('./books.json');
-    const books = await response.json();
+    tbody.innerHTML = "";
     books.forEach(book => {
         const row = document.createElement('tr');
         const lendIcon = `
@@ -61,11 +95,22 @@ async function loadBooks(){
                     <path d="M18 0.5C27.665 0.5 35.5 8.33502 35.5 18C35.5 27.665 27.665 35.5 18 35.5C8.33502 35.5 0.5 27.665 0.5 18C0.5 8.33502 8.33502 0.5 18 0.5Z" stroke="#900B09" stroke-linecap="round"/>
                     <path d="M10.5 13H12.1667M12.1667 13H25.5M12.1667 13L12.1667 24.6667C12.1667 25.1087 12.3423 25.5326 12.6548 25.8452C12.9674 26.1578 13.3913 26.3334 13.8333 26.3334H22.1667C22.6087 26.3334 23.0326 26.1578 23.3452 25.8452C23.6577 25.5326 23.8333 25.1087 23.8333 24.6667V13M14.6667 13V11.3334C14.6667 10.8913 14.8423 10.4674 15.1548 10.1548C15.4674 9.84228 15.8913 9.66669 16.3333 9.66669H19.6667C20.1087 9.66669 20.5326 9.84228 20.8452 10.1548C21.1577 10.4674 21.3333 10.8913 21.3333 11.3334V13M16.3333 17.1667V22.1667M19.6667 17.1667V22.1667" stroke="#900B09" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-
             </button>
         </td>
         `
         tbody.appendChild(row);
     });
 }
-loadBooks();
+
+function activeClass() {
+    const currentPage = window.location.pathname;
+    const menuItems = document.querySelectorAll(".menu-list .menu-item");
+    menuItems.forEach(item => {
+        const itemHref = item.getAttribute("href");
+        if (currentPage.includes(itemHref) && itemHref !== "/") {
+            item.classList.add("active");
+        }
+    });
+}
+activeClass();
+

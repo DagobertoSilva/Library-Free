@@ -28,7 +28,12 @@
     <section class="container">
         <form action="" class="search-form">
             <input type="text" placeholder="Procure por nome, ISBN ou gênero..." class="search-form-input">
-            <button class="search-form-button"><img src="./img/search.svg" alt="Ícone de uma lupa para busca."> <p>Buscar</p></button>    
+            <button class="search-form-button">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14.0001 14L11.1001 11.1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>    
+            <p>Buscar</p></button>    
         </form>
     </section>
     <section class="container">
@@ -44,6 +49,22 @@
             </thead>
             <tbody class="book-table-body">
             </tbody>
+        </table>
+        <div class="pagination">
+            <button id="btn-previous">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>Anterior</p></button>
+            </button>
+            <span id="page-index"></span>
+            <button id="btn-next">
+                <p>Próximo</p> 
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
     </section>
     <footer>
 

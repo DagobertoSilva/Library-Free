@@ -4,7 +4,7 @@ main{
     padding: 8px 0px;
 }
 
-.menu-list {
+.menu-list{
     display: flex;
     align-items: center;
     justify-content: end;
@@ -19,6 +19,7 @@ main{
     padding: 8px;
     border-radius: 8px;
 }
+
 
 .active{
     background-color: #F5F5F5;

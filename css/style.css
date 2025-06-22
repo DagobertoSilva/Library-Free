@@ -11,3 +11,4 @@
 /* books */
 @import "./books/search.css";
 @import "./books/table.css";
+@import "./books/pagination.css"

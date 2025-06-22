@@ -46,5 +46,53 @@
       "titulo": "O Alienista",
       "genero": "Ficção",
       "status": "Livre"
+    },
+    {
+      "isbn": "9780451524935",
+      "titulo": "1984",
+      "genero": "Distopia",
+      "status": "Ocupado"
+    },
+    {
+      "isbn": "9788599296312",
+      "titulo": "O Guia do Mochileiro das Galáxias",
+      "genero": "Ficção Científica",
+      "status": "Livre"
+    },
+    {
+      "isbn": "9788535909883",
+      "titulo": "Grande Sertão: Veredas",
+      "genero": "Romance",
+      "status": "Ocupado"
+    },
+    {
+      "isbn": "9788838439487",
+      "titulo": "O Pequeno Príncipe",
+      "genero": "Fábula",
+      "status": "Livre"
+    },
+    {
+      "isbn": "9788525063231",
+      "titulo": "Fahrenheit 451",
+      "genero": "Distopia",
+      "status": "Livre"
+    },
+    {
+      "isbn": "9788532524683",
+      "titulo": "Memórias Póstumas de Brás Cubas",
+      "genero": "Romance",
+      "status": "Ocupado"
+    },
+    {
+      "isbn": "9788535909555",
+      "titulo": "A Revolução dos Bichos",
+      "genero": "Sátira Política",
+      "status": "Ocupado"
+    },
+    {
+      "isbn": "9788501012078",
+      "titulo": "Cem Anos de Solidão",
+      "genero": "Realismo Mágico",
+      "status": "Livre"
     }
   ]
