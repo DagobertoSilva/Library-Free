@@ -21,6 +21,22 @@
     font-size: 1rem;
 }
 
+.livre{
+    color: #064E3B;
+    background-color: #ECFDF5;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.ocupado{
+    color: #991B1B;
+    background-color: #FEF2F2;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
 .book-table-body-actions{
     display: flex;
     gap: 8px;
@@ -32,3 +48,25 @@
     cursor: pointer;
     padding: 0px;
 }
+
+.lendIcon:focus, .returnIcon:focus, .editIcon:focus, .deleteIcon:focus{
+    outline: none;
+}
+
+.lendIcon:hover svg path:nth-child(1), .lendIcon:focus svg path:nth-child(1){
+    fill: #119951;
+}
+
+.returnIcon:hover svg path:nth-child(1), .returnIcon:focus svg path:nth-child(1){
+    fill: #BDBDBD
+}
+
+.editIcon:hover svg path:nth-child(1), .editIcon:focus svg path:nth-child(1){
+    fill: #D4A82A;
+}
+
+.deleteIcon:hover svg path:nth-child(1), .deleteIcon:focus svg path:nth-child(1){
+    fill: #D41E1B;
+}
+
+
