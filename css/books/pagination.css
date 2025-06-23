@@ -13,8 +13,12 @@
     color: white;
     padding: 8px 12px;
     border-radius: 8px;
+    width: 20px;
+    height: 20 px;
     text-align: center;
-    min-width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pagination button{
@@ -39,7 +43,7 @@
     transform: rotate(180deg);
 }
   
-.pagination button:hover {
+.pagination button:hover, .pagination button:focus {
     color: #757575;
 }
 

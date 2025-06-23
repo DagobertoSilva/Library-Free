@@ -9,6 +9,7 @@
 @import "./utilities/typography.css";
 
 /* books */
+@import "./books/main.css";
 @import "./books/search.css";
 @import "./books/table.css";
 @import "./books/pagination.css"

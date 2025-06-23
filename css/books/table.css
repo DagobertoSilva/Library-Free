@@ -69,4 +69,29 @@
     fill: #D41E1B;
 }
 
+.btn-add{
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    background-color: var(--bg-positive);
+    border: 1px solid var(--color-positive);
+    border-radius: 8px;
+    margin: 16px 0;
+    color: var(--color-positive);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn-add:focus{
+    outline: none;
+}
+
+.btn-add:hover{
+    background-color: #119951;
+}
+
 
