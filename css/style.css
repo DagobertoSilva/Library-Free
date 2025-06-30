@@ -2,14 +2,14 @@
 @import "./global/global.css";
 @import "./global/header.css";
 @import "./global/footer.css";
+@import "./global/table.css";
 
 /* utilidades */
-@import "./utilities/components.css";
 @import "./utilities/colors.css";
-@import "./utilities/typography.css";
 
-/* books */
-@import "./books/main.css";
-@import "./books/search.css";
-@import "./books/table.css";
-@import "./books/pagination.css"
+/* components */
+@import "./components/general.css";
+@import "./components/pagination.css";
+@import "./components/search.css";
+@import "./components/table.css";
+@import "./components/main.css";

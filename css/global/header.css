@@ -15,8 +15,12 @@
 }
 
 
-.active{
+.menu-item.active{
     background-color: #F5F5F5;
+}
+
+.text:hover{
+    color: #575757;
 }
 
 .home{
