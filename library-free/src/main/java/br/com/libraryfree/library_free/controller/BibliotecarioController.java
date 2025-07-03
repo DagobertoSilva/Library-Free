@@ -3,11 +3,19 @@ package br.com.libraryfree.library_free.controller;
 import br.com.libraryfree.library_free.DTO.LoginDTO;
 import br.com.libraryfree.library_free.DTO.BibliotecarioDTO;
 import br.com.libraryfree.library_free.service.BibliotecarioService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +27,20 @@ public class BibliotecarioController {
     @Autowired
     private BibliotecarioService bibliotecarioService;
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
     @PostMapping("/auth/login")
-    public ResponseEntity<BibliotecarioDTO> login(@RequestBody LoginDTO loginDTO) {
+    public ResponseEntity<BibliotecarioDTO> login(@RequestBody LoginDTO loginDTO, HttpServletRequest request) {
         try {
-            BibliotecarioDTO bibliotecarioDTO = bibliotecarioService.login(loginDTO);
+            UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
+                    new UsernamePasswordAuthenticationToken(loginDTO.email(), loginDTO.senha());
+            Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+            SecurityContext securityContext = SecurityContextHolder.getContext();
+            securityContext.setAuthentication(authentication);
+            HttpSession session = request.getSession(true);
+            session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, securityContext);
+            BibliotecarioDTO bibliotecarioDTO =  bibliotecarioService.getBibliotecarioDTO(authentication);
             return ResponseEntity.ok(bibliotecarioDTO);
         } catch (UsernameNotFoundException | BadCredentialsException error) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
