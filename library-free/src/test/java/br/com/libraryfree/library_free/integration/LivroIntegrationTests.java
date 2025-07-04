@@ -189,4 +189,151 @@ public class LivroIntegrationTests {
         );
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
     }
+
+    @Test
+    @DirtiesContext
+    public void shouldDeleteLivroWhenIdExists() {
+        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
+        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
+                "/libraryfree/auth/login",
+                loginDTO,
+                BibliotecarioDTO.class
+        );
+        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
+        HttpHeaders headers = new HttpHeaders();
+        headers.put(HttpHeaders.COOKIE, cookies);
+        HttpEntity<Void> request = new HttpEntity<>(headers);
+        ResponseEntity<Void> response = testRestTemplate.exchange(
+                "/libraryfree/livros/1",
+                HttpMethod.DELETE,
+                request,
+                Void.class
+        );
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+        ResponseEntity<Livro> getByIdResponse = testRestTemplate.exchange(
+                "/libraryfree/livros/1",
+                HttpMethod.GET,
+                request,
+                Livro.class
+        );
+        assertThat(getByIdResponse.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+    }
+
+    @Test
+    public void shouldReturnNotFoundWhenDeletingNonExistingId() {
+        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
+        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
+                "/libraryfree/auth/login",
+                loginDTO,
+                BibliotecarioDTO.class
+        );
+        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
+        HttpHeaders headers = new HttpHeaders();
+        headers.put(HttpHeaders.COOKIE, cookies);
+        HttpEntity<Void> request = new HttpEntity<>(headers);
+        ResponseEntity<Void> response = testRestTemplate.exchange(
+                "/libraryfree/livros/1000",
+                HttpMethod.DELETE,
+                request,
+                Void.class
+        );
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+    }
+
+    @Test
+    public void shouldUpdateLivroWhenIdExistsAndIsbnIsUnique() {
+        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
+        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
+                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
+        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
+        HttpHeaders headers = new HttpHeaders();
+        headers.put(HttpHeaders.COOKIE, cookies);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        Livro updatedLivro = new Livro(null,
+                "Rápido e Devagar - Editado",
+                "9788539004118",
+                "Daniel Kahneman",
+                "Psicologia",
+                "2ª",
+                LocalDate.parse("2012-03-01"),
+                "Objetiva",
+                false
+        );
+        HttpEntity<Livro> request = new HttpEntity<>(updatedLivro, headers);
+        ResponseEntity<Void> response = testRestTemplate.exchange(
+                "/libraryfree/livros/1",
+                HttpMethod.PUT,
+                request,
+                Void.class
+        );
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+        ResponseEntity<Livro> getByIdResponse = testRestTemplate.exchange(
+                "/libraryfree/livros/1",
+                HttpMethod.GET,
+                request,
+                Livro.class
+        );
+        assertThat(getByIdResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(getByIdResponse.getBody().getIsbn()).isEqualTo(updatedLivro.getIsbn());
+    }
+
+    @Test
+    public void shouldReturnNotFoundWhenUpdatingNonExistingLivro() {
+        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
+        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
+                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
+        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
+        HttpHeaders headers = new HttpHeaders();
+        headers.put(HttpHeaders.COOKIE, cookies);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        Livro updatedLivro = new Livro(null,
+                "Rápido e Devagar - Editado",
+                "9788539004118",
+                "Daniel Kahneman",
+                "Psicologia",
+                "2ª",
+                LocalDate.parse("2012-03-01"),
+                "Objetiva",
+                false
+        );
+        HttpEntity<Livro> request = new HttpEntity<>(updatedLivro, headers);
+        ResponseEntity<Void> response = testRestTemplate.exchange(
+                "/libraryfree/livros/1000",
+                HttpMethod.PUT,
+                request,
+                Void.class
+        );
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+    }
+
+    @Test
+    public void shouldReturnBadRequestWhenUpdatingLivroWithDuplicateIsbn() {
+        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
+        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
+                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
+        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
+        HttpHeaders headers = new HttpHeaders();
+        headers.put(HttpHeaders.COOKIE, cookies);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        Livro updatedLivro = new Livro(null,
+                "O Senhor dos Anéis",
+                "9788595084759",
+                "J.R.R. Tolkien",
+                "Alta Fantasia",
+                "Volume Único",
+                LocalDate.parse("2019-11-01"),
+                "HarperCollins Brasil",
+                false
+        );
+        HttpEntity<Livro> request = new HttpEntity<>(updatedLivro, headers);
+        ResponseEntity<Void> response = testRestTemplate.exchange(
+                "/libraryfree/livros/2",
+                HttpMethod.PUT,
+                request,
+                Void.class
+        );
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    }
 }

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+
 @Service
 public class LivroService {
     @Autowired
@@ -26,5 +28,32 @@ public class LivroService {
         livroRepository.findByIsbn(livro.getIsbn())
                 .ifPresent(existing -> { throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ISBN já existente."); });
         return livroRepository.save(livro);
+    }
+
+    public void editLivro(Long id, Livro livro){
+        Livro existingLivro = livroRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado."));
+
+        Optional<Livro> existingWithIsbn = livroRepository.findByIsbn(livro.getIsbn());
+        if (existingWithIsbn.isPresent() && !existingWithIsbn.get().getId().equals(id)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ISBN já está em uso por outro livro.");
+        }
+
+        existingLivro.setTitulo(livro.getTitulo());
+        existingLivro.setIsbn(livro.getIsbn());
+        existingLivro.setAutor(livro.getAutor());
+        existingLivro.setGenero(livro.getGenero());
+        existingLivro.setEdicao(livro.getEdicao());
+        existingLivro.setPublicacao(livro.getPublicacao());
+        existingLivro.setEditora(livro.getEditora());
+        existingLivro.setEmprestado(livro.getEmprestado());
+        livroRepository.save(existingLivro);
+    }
+
+    public void deleteLivro(Long id){
+        if (!livroRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado.");
+        }
+        livroRepository.deleteById(id);
     }
 }

@@ -2,6 +2,7 @@ package br.com.libraryfree.library_free.controller;
 
 import br.com.libraryfree.library_free.domain.Livro;
 import br.com.libraryfree.library_free.service.LivroService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,5 +33,17 @@ public class LivroController {
         Livro livro = livroService.createLivro(newLivroRequest);
         URI locationOfNewLivro = ucb.path("/libraryfree/livros/{id}").buildAndExpand(livro.getId()).toUri();
         return ResponseEntity.created(locationOfNewLivro).build();
+    }
+
+    @PutMapping("/livros/{requestedID}")
+    public ResponseEntity<Void> editLivro(@PathVariable Long requestedID, @RequestBody Livro livroUpdate){
+        livroService.editLivro(requestedID, livroUpdate);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/livros/{requestedID}")
+    public ResponseEntity<Void> deleteLivro(@PathVariable Long requestedID){
+        livroService.deleteLivro(requestedID);
+        return ResponseEntity.noContent().build();
     }
 }
