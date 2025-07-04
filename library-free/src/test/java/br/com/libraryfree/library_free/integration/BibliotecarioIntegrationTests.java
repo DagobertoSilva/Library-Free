@@ -8,9 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.ActiveProfiles;
+
+import java.util.List;
 
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -45,5 +46,23 @@ public class BibliotecarioIntegrationTests {
         ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
                 "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
         assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+    }
+
+    @Test
+    public void shouldExpireSessionCookieOnLogout() {
+        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
+        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
+                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
+        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        List<String> loginCookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
+        assertThat(loginCookies).isNotNull();
+        HttpHeaders headers = new HttpHeaders();
+        headers.put(HttpHeaders.COOKIE, loginCookies);
+        HttpEntity<Void> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<Void> logoutResponse = testRestTemplate.exchange("/libraryfree/auth/logout", HttpMethod.POST, entity, Void.class);
+        assertThat(logoutResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        List<String> logoutCookies = logoutResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
+
     }
 }
