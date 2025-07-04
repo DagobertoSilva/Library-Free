@@ -34,10 +34,11 @@ public class LivroService {
         Livro existingLivro = livroRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado."));
 
-        Optional<Livro> existingWithIsbn = livroRepository.findByIsbn(livro.getIsbn());
-        if (existingWithIsbn.isPresent() && !existingWithIsbn.get().getId().equals(id)) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ISBN já está em uso por outro livro.");
-        }
+        livroRepository.findByIsbn(livro.getIsbn())
+                .filter(outroLivro -> !outroLivro.getId().equals(id))
+                .ifPresent(conflicting -> {
+                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ISBN já está em uso por outro livro.");
+                });
 
         existingLivro.setTitulo(livro.getTitulo());
         existingLivro.setIsbn(livro.getIsbn());

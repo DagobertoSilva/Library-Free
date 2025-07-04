@@ -18,3 +18,9 @@ INSERT INTO Livro (titulo, isbn, autor, genero, edicao, publicacao, editora, emp
 ('A Culpa é das Estrelas', '9788580572261', 'John Green', 'Romance Jovem Adulto', 'Edição Padrão', '2012-07-10', 'Intrínseca', FALSE),
 ('O Sol é para Todos', '9788501010398', 'Harper Lee', 'Ficção', 'Edição Comemorativa', '2006-01-01', 'José Olympio', FALSE),
 ('Ensaio sobre a Cegueira', '9788535908115', 'José Saramago', 'Ficção', 'Edição de Bolso', '2006-08-28', 'Companhia das Letras', FALSE);
+
+INSERT INTO Aluno (nome, matricula, cpf, ativo) VALUES
+('João da Silva', '20230001', '123.456.789-00', TRUE),
+('Maria Oliveira', '20230002', '234.567.890-11', TRUE),
+('Carlos Pereira', '20230003', '345.678.901-22', TRUE),
+('Ana Souza', '20230004', '456.789.012-33', TRUE);
