@@ -1,5 +1,7 @@
 package br.com.libraryfree.library_free.integration;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import br.com.libraryfree.library_free.DTO.BibliotecarioDTO;
 import br.com.libraryfree.library_free.DTO.LoginDTO;
 import br.com.libraryfree.library_free.domain.Aluno;
@@ -14,8 +16,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.net.URI;
 import java.util.List;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -37,14 +37,8 @@ public class AlunoIntegrationTests {
 
     @Test
     public void shouldReturnAllAlunosWhenAuthenticated() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
-        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-        List<String> cookies = loginResponse.getHeaders().get("Set-Cookie");
-        assertThat(cookies).isNotNull();
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         HttpEntity<Void> request = new HttpEntity<>(headers);
         ParameterizedTypeReference<Iterable<Aluno>> responseType = new ParameterizedTypeReference<>() {};
         ResponseEntity<Iterable<Aluno>> getResponse = testRestTemplate.exchange(
@@ -59,16 +53,8 @@ public class AlunoIntegrationTests {
 
     @Test
     public void shouldReturnAlunoWhenIdExists() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login",
-                loginDTO,
-                BibliotecarioDTO.class
-        );
-        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         HttpEntity<Void> request = new HttpEntity<>(headers);
         ResponseEntity<Aluno> response = testRestTemplate.exchange(
                 "/libraryfree/alunos/1",
@@ -79,7 +65,6 @@ public class AlunoIntegrationTests {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
         Aluno aluno = response.getBody();
-        assertThat(aluno).isNotNull();
         assertThat(aluno.getId()).isEqualTo(1);
         assertThat(aluno.getNome()).isEqualTo("João da Silva");
         assertThat(aluno.getMatricula()).isEqualTo("20230001");
@@ -89,16 +74,8 @@ public class AlunoIntegrationTests {
 
     @Test
     public void shouldReturnNotFoundWhenIdDoesNotExist() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login",
-                loginDTO,
-                BibliotecarioDTO.class
-        );
-        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         HttpEntity<Void> request = new HttpEntity<>(headers);
         ResponseEntity<Aluno> response = testRestTemplate.exchange(
                 "/libraryfree/alunos/1000000",
@@ -112,13 +89,8 @@ public class AlunoIntegrationTests {
     @Test
     @DirtiesContext
     public void shouldCreateAlunoWhenMatriculaAndCpfDoesNotExist() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login",
-                loginDTO,
-                BibliotecarioDTO.class
-        );
-        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         Aluno aluno = new Aluno(
                 null,
                 "Fernanda Almeida",
@@ -126,10 +98,6 @@ public class AlunoIntegrationTests {
                 "567.890.123-44",
                 true
         );
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
-        headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Aluno> request = new HttpEntity<>(aluno, headers);
         ResponseEntity<Void> postResponse = testRestTemplate.postForEntity(
                 "/libraryfree/alunos",
@@ -137,8 +105,6 @@ public class AlunoIntegrationTests {
                 Void.class
         );
         assertThat(postResponse.getStatusCode()).isEqualTo(HttpStatus.CREATED);
-        headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
         request = new HttpEntity<>(headers);
         URI locationOfTheNewAluno = postResponse.getHeaders().getLocation();
         ResponseEntity<Aluno> getByIdResponse = testRestTemplate.exchange(
@@ -154,13 +120,8 @@ public class AlunoIntegrationTests {
 
     @Test
     public void shouldReturnBadRequestWhenMatriculaAlreadyExists() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login",
-                loginDTO,
-                BibliotecarioDTO.class
-        );
-        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         Aluno aluno = new Aluno(
                 null,
                 "Novo aluno",
@@ -168,10 +129,6 @@ public class AlunoIntegrationTests {
                 "888.999.000-11",
                 true
         );
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
-        headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Aluno> request = new HttpEntity<>(aluno, headers);
         ResponseEntity<Void> postResponse = testRestTemplate.postForEntity(
                 "/libraryfree/alunos",
@@ -183,13 +140,8 @@ public class AlunoIntegrationTests {
 
     @Test
     public void shouldReturnBadRequestWhenCpfAlreadyExists() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login",
-                loginDTO,
-                BibliotecarioDTO.class
-        );
-        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         Aluno aluno = new Aluno(
                 null,
                 "Novo aluno",
@@ -197,10 +149,6 @@ public class AlunoIntegrationTests {
                 "123.456.789-00",
                 true
         );
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
-        headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Aluno> request = new HttpEntity<>(aluno, headers);
         ResponseEntity<Void> postResponse = testRestTemplate.postForEntity(
                 "/libraryfree/alunos",
@@ -213,13 +161,8 @@ public class AlunoIntegrationTests {
     @Test
     @DirtiesContext
     public void shouldUpdateAlunoWhenIdExistsAndMatriculaAndCpfAreUnique() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         Aluno updatedAluno = new Aluno(
                 null,
                 "Marcos Vinicius",
@@ -235,11 +178,11 @@ public class AlunoIntegrationTests {
                 Void.class
         );
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
-        HttpEntity<Void> getRequest = new HttpEntity<>(headers);
+        request = new HttpEntity<>(headers);
         ResponseEntity<Aluno> getByIdResponse = testRestTemplate.exchange(
                 "/libraryfree/alunos/1",
                 HttpMethod.GET,
-                getRequest,
+                request,
                 Aluno.class
         );
         assertThat(getByIdResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -250,13 +193,8 @@ public class AlunoIntegrationTests {
 
     @Test
     public void shouldReturnNotFoundWhenUpdatingNonExistingAluno() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         Aluno updatedAluno = new Aluno(
                 null,
                 "Marcos Vinicius",
@@ -276,13 +214,8 @@ public class AlunoIntegrationTests {
 
     @Test
     public void shouldReturnBadRequestWhenUpdatingAlunoWithDuplicateMatricula() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         Aluno updatedAluno = new Aluno(
                 null,
                 "Marcos Vinicius",
@@ -302,13 +235,8 @@ public class AlunoIntegrationTests {
 
     @Test
     public void shouldReturnBadRequestWhenUpdatingAlunoWithDuplicateCpf() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         Aluno updatedAluno = new Aluno(
                 null,
                 "Marcos Vinicius",
@@ -329,16 +257,8 @@ public class AlunoIntegrationTests {
     @Test
     @DirtiesContext
     public void shouldDeleteAlunoWhenIdExists() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login",
-                loginDTO,
-                BibliotecarioDTO.class
-        );
-        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         HttpEntity<Void> request = new HttpEntity<>(headers);
         ResponseEntity<Void> response = testRestTemplate.exchange(
                 "/libraryfree/alunos/1",
@@ -358,16 +278,8 @@ public class AlunoIntegrationTests {
 
     @Test
     public void shouldReturnNotFoundWhenDeletingNonExistingAluno() {
-        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
-        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
-                "/libraryfree/auth/login",
-                loginDTO,
-                BibliotecarioDTO.class
-        );
-        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-        List<String> cookies = loginResponse.getHeaders().get(HttpHeaders.SET_COOKIE);
-        HttpHeaders headers = new HttpHeaders();
-        headers.put(HttpHeaders.COOKIE, cookies);
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
         HttpEntity<Void> request = new HttpEntity<>(headers);
         ResponseEntity<Void> response = testRestTemplate.exchange(
                 "/libraryfree/alunos/1000",
@@ -376,5 +288,22 @@ public class AlunoIntegrationTests {
                 Void.class
         );
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+    }
+
+    private ResponseEntity<BibliotecarioDTO> BibliotecarioLogin() {
+        LoginDTO loginDTO = new LoginDTO("admin@libraryfree.com", "senha123");
+        ResponseEntity<BibliotecarioDTO> loginResponse = testRestTemplate.postForEntity(
+                "/libraryfree/auth/login", loginDTO, BibliotecarioDTO.class);
+        assertThat(loginResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        return loginResponse;
+    }
+
+    private HttpHeaders createHeadersWithCookie(ResponseEntity<?> response) {
+        List<String> cookies = response.getHeaders().get(HttpHeaders.SET_COOKIE);
+        assertThat(cookies).isNotNull();
+        HttpHeaders headers = new HttpHeaders();
+        headers.put(HttpHeaders.COOKIE, cookies);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return headers;
     }
 }
