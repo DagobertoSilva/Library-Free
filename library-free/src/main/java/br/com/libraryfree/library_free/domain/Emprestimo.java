@@ -28,7 +28,7 @@ public class Emprestimo {
     @Column(nullable = false)
     private LocalDate prazoDevolucao;
     private LocalDate dataDevolucao;
-    @Column(nullable = false)
+    @Column(columnDefinition = "TINYINT(1)", nullable = false)
     private Boolean ativo;
 
     public Emprestimo() {}

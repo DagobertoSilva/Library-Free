@@ -26,7 +26,7 @@ public class Aluno {
     private String matricula;
     @Column(nullable = false, length = 13, unique = true)
     private String cpf;
-    @Column(nullable = false)
+    @Column(columnDefinition = "TINYINT(1)", nullable = false)
     private Boolean ativo;
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference("aluno-emprestimo")

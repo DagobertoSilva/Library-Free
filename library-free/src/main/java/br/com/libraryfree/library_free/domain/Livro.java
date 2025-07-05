@@ -30,7 +30,7 @@ public class Livro {
     private String edicao;
     private LocalDate publicacao;
     private String editora;
-    @Column(nullable = false)
+    @Column(columnDefinition = "TINYINT(1)", nullable = false)
     private Boolean emprestado;
     @OneToMany(mappedBy = "livro", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference("livro-emprestimo")
