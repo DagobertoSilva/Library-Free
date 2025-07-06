@@ -1,0 +1,179 @@
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.close-button {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute; 
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    line-height: 1; 
+    padding: 0; 
+    background: none; 
+    border: none; 
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    outline: none;
+}
+
+/* Título principal do modal */
+.modal-content h2 {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 1.8rem;
+    color: var(--color-4);
+    line-height: 1.2;
+}
+
+/* Título do livro dentro do modal */
+.modal-content p.book-title-modal {
+    text-align: left;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    color: var(--color-2);
+    font-weight: bold;
+}
+
+/* Agrupamento de formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--color-3);
+}
+
+/* Estilo para o container do input com ícone */
+.input-with-icon {
+    position: relative;
+    display: flex; 
+    align-items: center; 
+    width: 100%;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px; 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: var(--color-3);
+    background-color: #fff;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.input-with-icon input:focus {
+    outline: none;
+    border-color: var(--color-positive);
+    box-shadow: 0 0 0 0.1rem rgba(2, 84, 45, 0.25);
+}
+
+.input-with-icon svg {
+    position: absolute;
+    right: 12px;
+    color: var(--color-2);
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+
+/* Mostra o texto quando o campo está focado ou preenchido */
+.input-with-icon input[type="date"]:focus::-webkit-datetime-edit-month-field,
+.input-with-icon input[type="date"]:focus::-webkit-datetime-edit-day-field,
+.input-with-icon input[type="date"]:focus::-webkit-datetime-edit-year-field,
+.input-with-icon input[type="date"]:valid::-webkit-datetime-edit-month-field,
+.input-with-icon input[type="date"]:valid::-webkit-datetime-edit-day-field,
+.input-with-icon input[type="date"]:valid::-webkit-datetime-edit-year-field {
+    color: var(--color-3);
+}
+
+/* Estiliza o placeholder real do HTML */
+.input-with-icon input[type="date"]::placeholder {
+    color: var(--color-2);
+    opacity: 1; 
+}
+
+/* Ações do modal (botões) */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 10px; 
+    margin-top: 30px;
+}
+
+.modal-actions button {
+    /* Redefinir estilos para anular completamente o Bootstrap e outros padrões */
+    padding: 8px 16px; 
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem; 
+    line-height: 1; 
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.btn-positive {
+    background-color: var(--bg-positive);
+    color: white;
+}
+
+.btn-positive:hover {
+    background-color: #119951;
+}
+
+.btn-warning {
+    background-color: var(--bg-warning);
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #D4A82A;
+}
