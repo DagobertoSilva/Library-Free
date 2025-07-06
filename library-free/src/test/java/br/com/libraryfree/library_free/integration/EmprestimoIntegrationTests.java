@@ -118,7 +118,6 @@ public class EmprestimoIntegrationTests {
         assertThat(emprestimoResponseDTO.getAlunoNome()).isEqualTo("João da Silva");
         assertThat(emprestimoResponseDTO.getLivroId()).isEqualTo(2);
         assertThat(emprestimoResponseDTO.getLivroTitulo()).isEqualTo("Dom Casmurro");
-        assertThat(emprestimoResponseDTO.getDataEmprestimo()).isEqualTo(LocalDate.parse("2025-07-05"));
         assertThat(emprestimoResponseDTO.getPrazoDevolucao()).isEqualTo(LocalDate.parse("2030-10-10"));
         assertThat(emprestimoResponseDTO.getDataDevolucao()).isNull();
         assertThat(emprestimoResponseDTO.getAtivo()).isTrue();

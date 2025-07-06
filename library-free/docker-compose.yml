@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.6
+    container_name: libraryfree-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: LibraryFree
+      MYSQL_USER: joao
+      MYSQL_PASSWORD: ${DB_USER_PASSWORD}
+    ports:
+      - "3307:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  app:
+    image: joaomnz/library-free-app:latest
+    container_name: libraryfree-app
+    restart: on-failure
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/LibraryFree?tinyInt1isBit=false
+      SPRING_DATASOURCE_USERNAME: joao
+      SPRING_DATASOURCE_PASSWORD: ${DB_USER_PASSWORD}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+volumes:
+  mariadb_data:
