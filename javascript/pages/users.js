@@ -1,6 +1,8 @@
 import { createPaginatedTable } from '../modules/table-manager.js';
+import { FILTER_ALUNOS, GET_ALUNOS } from '../services/api.js';
+
 const userConfig = {
-    source: "../data/users.json",
+    source: GET_ALUNOS(),
     renderRow: (user) => {
         const editIcon = `
         <button class="editIcon">
@@ -34,18 +36,8 @@ const userConfig = {
             </td>
         `
     },
-    filterData: (dataList, searchTerm) => {
-        const normalizedTerm = searchTerm.toLowerCase().trim();
-        const filteredUsers = dataList.filter(user => {
-            const name = user.nome.toLowerCase();
-            const cpf = user.cpf;
-            const registration = user.matricula;
-            const isNameMatch = name.includes(normalizedTerm);
-            const isCpfMatch = cpf.includes(normalizedTerm);
-            const isRegistrationMatch = registration.includes(normalizedTerm);
-            return isNameMatch || isCpfMatch || isRegistrationMatch;
-        });
-        return filteredUsers;
+    filterData: (nome) => {
+        return FILTER_ALUNOS(nome);;
     }
 }
 createPaginatedTable(userConfig);

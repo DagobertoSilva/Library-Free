@@ -22,3 +22,32 @@ export function GET_LIVROS(){
         }
     }
 }
+
+export function FILTER_LIVROS(titulo){
+    const encodedTitulo = encodeURIComponent(titulo);
+    return{
+        url: `${API_URL}/livros/search/?=${encodedTitulo}`,
+        options: {
+            credentials: 'include'
+        }
+    }
+}
+
+export function GET_ALUNOS(){
+    return{
+        url: `${API_URL}/alunos`,
+        options: {
+            credentials: 'include'
+        }
+    }
+}
+
+export function FILTER_ALUNOS(nome){
+    const encodedNome = encodeURIComponent(nome);
+    return{
+        url: `${API_URL}/alunos/search/?=${encodedTitle}`,
+        options: {
+            credentials: 'include'
+        }
+    }
+}

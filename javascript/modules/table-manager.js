@@ -1,5 +1,4 @@
 import { fetchData } from '../services/fetch.js';
-
 export function createPaginatedTable(config){
     let dataList = [];
     let currentPage = 1;
@@ -15,25 +14,24 @@ export function createPaginatedTable(config){
     const searchButton = document.querySelector("#search-button");
     
     async function init(){
-        await updateDataList(null);
+        await updateDataList(config.source.url, config.source.options);
         updatePageStates();
         setupPagination();
         setupSearch();
     }
     init();
 
-    async function updateDataList(updatedList){
-        console.log(updatedList);
-        if(updatedList === null){
-            const response = await fetchData(config.source.url, config.source.options);
-            console.log(config.source);
-            dataList = await response.json();
+    async function updateDataList(url, options){
+        const { data, error} = await fetchData(url,options);
+        if(error){
+            alert("Erro ao carregar dados.");
         }else{
-            dataList = updatedList;
+            dataList = data;
+            currentPage = 1;
+            lastPage = Math.ceil(dataList.length / dataPerPage);
+            paginateData();
         }
-        currentPage = 1;
-        lastPage = Math.ceil(dataList.length / dataPerPage);
-        paginateData();
+        
     }
 
     function updatePageStates(){
@@ -96,12 +94,12 @@ export function createPaginatedTable(config){
                 isSearchActive = false;
                 searchInput.value = "";
                 searchButton.innerHTML = search;
-                updateDataList(null);
+                updateDataList(config.source.url, config.source.options);
             }else{
                 if(searchInput.value){
                     isSearchActive = true;
-                    const filteredData = config.filterData(dataList, searchInput.value);
-                    updateDataList(filteredData);
+                    const { url , options } = config.filterData(searchInput.value);
+                    updateDataList(url, options);
                     searchButton.innerHTML = clear;
                 }else{
                     return;

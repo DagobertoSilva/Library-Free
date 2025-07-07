@@ -1,5 +1,5 @@
 import { createPaginatedTable } from '../modules/table-manager.js';
-import { GET_LIVROS } from '../services/api.js';
+import { GET_LIVROS, FILTER_LIVROS } from '../services/api.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const reserveBookModal = document.getElementById('reserveBookModal');
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Erro ao carregar dados de usuários:", error);
         alert("Erro ao carregar lista de usuários. A validação pode falhar.");
     }
-
     const bookConfig = {
         source: GET_LIVROS(),
         renderRow: (book) => {
@@ -69,18 +68,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </td>
             `
         },
-        filterData: (dataList, searchTerm) => {
-            const normalizedTerm = searchTerm.toLowerCase().trim();
-            const filteredBooks = dataList.filter(book => {
-                const title = book.titulo.toLowerCase();
-                const genre = book.genero.toLowerCase();
-                const isbn = book.isbn.toLowerCase();
-                const isTitleMatch = title.includes(normalizedTerm);
-                const isGenreMatch = genre.includes(normalizedTerm);
-                const isIsbnMatch = isbn.includes(normalizedTerm);
-                return isTitleMatch || isGenreMatch || isIsbnMatch;
-            });
-            return filteredBooks;
+        filterData: (titulo) => {
+            return FILTER_LIVROS(titulo);
         }
     }
     createPaginatedTable(bookConfig);
