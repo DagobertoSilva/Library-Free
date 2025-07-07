@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Library Free</title>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="../css/pages/login.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -17,21 +17,20 @@
         </div>
 
         <div class="fazendo-login">
-            <form>
+            <form class="form-login" action="#">
                 <div class="form-grupo">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Email">
+                    <input type="email" id="email" placeholder="Email" required>
                 </div>
                 <div class="form-grupo">
                     <label for="senha">Senha</label>
-                    <input type="senha" id="senha" placeholder="Senha">
+                    <input type="password" id="senha" placeholder="Senha" required>
                 </div>
                 <button type="submit">Entrar</button>
+                <span class="error"></span>
             </form>
-            <a href="#" class="esqueci-senha-link">Esqueceu a senha?</a>
         </div>
-
     </div>
-
 </body>
+<script type="module" src="../javascript/pages/login.js"></script>
 </html>

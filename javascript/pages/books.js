@@ -1,4 +1,4 @@
-import { createPaginatedTable } from './table-manager.js';
+import { createPaginatedTable } from '../modules/table-manager.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const reserveBookModal = document.getElementById('reserveBookModal');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let usersData = [];
 
     try {
-        const response = await fetch("./data/users.json");
+        const response = await fetch("../data/users.json");
         usersData = await response.json();
     } catch (error) {
         console.error("Erro ao carregar dados de usuários:", error);
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const bookConfig = {
-        source: "./data/books.json",
+        source: "../data/books.json",
         renderRow: (book) => {
             const lendIcon = `
             <button class="lendIcon" data-book-isbn="${book.isbn}" data-book-title="${book.titulo}">

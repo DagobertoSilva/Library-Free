@@ -93,3 +93,9 @@ button{
 .esqueci-senha-link:hover{
     text-decoration: underline;
 }
+
+.error{
+    color: #f31 !important;
+    font-size: 0.875rem;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}

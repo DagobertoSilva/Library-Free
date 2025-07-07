@@ -1,6 +1,6 @@
-import { createPaginatedTable } from './table-manager.js';
+import { createPaginatedTable } from '../modules/table-manager.js';
 const userConfig = {
-    source: "./data/users.json",
+    source: "../data/users.json",
     renderRow: (user) => {
         const editIcon = `
         <button class="editIcon">

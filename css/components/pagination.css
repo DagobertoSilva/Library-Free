@@ -14,11 +14,12 @@
     padding: 8px 12px;
     border-radius: 8px;
     width: 20px;
-    height: 20 px;
+    height: 20px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: content-box;
 }
 
 .pagination button{
