@@ -24,7 +24,7 @@ public class Aluno {
     private String nome;
     @Column(nullable = false, length = 50, unique = true)
     private String matricula;
-    @Column(nullable = false, length = 13, unique = true)
+    @Column(nullable = false, length = 11, unique = true)
     private String cpf;
     @Column(columnDefinition = "TINYINT(1)", nullable = false)
     private Boolean ativo;
