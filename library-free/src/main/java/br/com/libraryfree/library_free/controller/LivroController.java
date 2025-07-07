@@ -22,6 +22,12 @@ public class LivroController {
         return ResponseEntity.ok(livros);
     }
 
+    @GetMapping("/livros/search")
+    public ResponseEntity<Iterable<Livro>> searchByTitulo(@RequestParam String titulo) {
+        Iterable<Livro> livros = livroService.searchByTitulo(titulo);
+        return ResponseEntity.ok(livros);
+    }
+
     @GetMapping("/livros/{requestedID}")
     public ResponseEntity<Livro> findById(@PathVariable Long requestedID){
         Livro livro = livroService.findById(requestedID);

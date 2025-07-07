@@ -21,9 +21,21 @@ public class AlunoController {
         return ResponseEntity.ok(alunos);
     }
 
+    @GetMapping("/alunos/search")
+    public ResponseEntity<Iterable<Aluno>> searchByNome(@RequestParam String nome) {
+        Iterable<Aluno> alunos = alunoService.searchByNome(nome);
+        return ResponseEntity.ok(alunos);
+    }
+
     @GetMapping("/alunos/{requestedID}")
     public ResponseEntity<Aluno> findById(@PathVariable Long requestedID){
         Aluno aluno = alunoService.findById(requestedID);
+        return ResponseEntity.ok(aluno);
+    }
+
+    @GetMapping("/alunos/matricula/{requestedMatricula}")
+    public ResponseEntity<Aluno> findByMatricula(@PathVariable String requestedMatricula){
+        Aluno aluno = alunoService.findByMatricula(requestedMatricula);
         return ResponseEntity.ok(aluno);
     }
 

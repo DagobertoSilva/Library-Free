@@ -1,6 +1,6 @@
 package br.com.libraryfree.library_free.integration;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import br.com.libraryfree.library_free.DTO.BibliotecarioDTO;
 import br.com.libraryfree.library_free.DTO.LoginDTO;
@@ -45,6 +45,22 @@ public class LivroIntegrationTests {
         ParameterizedTypeReference<Iterable<Livro>> responseType = new ParameterizedTypeReference<>() {};
         ResponseEntity<Iterable<Livro>> getResponse = testRestTemplate.exchange(
                 "/libraryfree/livros",
+                HttpMethod.GET,
+                request,
+                responseType
+        );
+        assertThat(getResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(getResponse.getBody()).isNotNull();
+    }
+
+    @Test
+    public void shouldReturnFilteredLivros() {
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
+        HttpEntity<Void> request = new HttpEntity<>(headers);
+        ParameterizedTypeReference<Iterable<Livro>> responseType = new ParameterizedTypeReference<>() {};
+        ResponseEntity<Iterable<Livro>> getResponse = testRestTemplate.exchange(
+                "/libraryfree/livros/search?titulo=O Senhor dos Anéis",
                 HttpMethod.GET,
                 request,
                 responseType

@@ -52,6 +52,22 @@ public class AlunoIntegrationTests {
     }
 
     @Test
+    public void shouldReturnFilteredAlunos() {
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
+        HttpEntity<Void> request = new HttpEntity<>(headers);
+        ParameterizedTypeReference<Iterable<Aluno>> responseType = new ParameterizedTypeReference<>() {};
+        ResponseEntity<Iterable<Aluno>> getResponse = testRestTemplate.exchange(
+                "/libraryfree/alunos/search?nome=Ana",
+                HttpMethod.GET,
+                request,
+                responseType
+        );
+        assertThat(getResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(getResponse.getBody()).isNotNull();
+    }
+
+    @Test
     public void shouldReturnAlunoWhenIdExists() {
         ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
         HttpHeaders headers = createHeadersWithCookie(loginResponse);
@@ -84,6 +100,42 @@ public class AlunoIntegrationTests {
                 Aluno.class
         );
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+    }
+
+    @Test
+    public void shouldReturnAlunoWhenMatriculaExists() {
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
+        HttpEntity<Void> request = new HttpEntity<>(headers);
+        ResponseEntity<Aluno> response = testRestTemplate.exchange(
+                "/libraryfree/alunos/matricula/20230001",
+                HttpMethod.GET,
+                request,
+                Aluno.class
+        );
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isNotNull();
+        Aluno aluno = response.getBody();
+        assertThat(aluno.getId()).isEqualTo(1);
+        assertThat(aluno.getNome()).isEqualTo("João da Silva");
+        assertThat(aluno.getMatricula()).isEqualTo("20230001");
+        assertThat(aluno.getCpf()).isEqualTo("123.456.789-00");
+        assertThat(aluno.getAtivo()).isEqualTo(true);
+    }
+
+    @Test
+    public void shouldReturnNotFoundWhenMatriculaDoesNotExist() {
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
+        HttpEntity<Void> request = new HttpEntity<>(headers);
+        ResponseEntity<String> response = testRestTemplate.exchange(
+                "/libraryfree/alunos/matricula/1000000",
+                HttpMethod.GET,
+                request,
+                String.class
+        );
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        System.out.println(response.getBody());
     }
 
     @Test

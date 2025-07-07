@@ -16,6 +16,10 @@ public class LivroService {
         return livroRepository.findAll();
     }
 
+    public Iterable<Livro> searchByTitulo(String titulo){
+        return livroRepository.findByTitulo(titulo);
+    }
+
     public Livro findById(Long id){
         return livroRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado."));

@@ -16,8 +16,17 @@ public class AlunoService {
         return alunoRepository.findAll();
     }
 
+    public Iterable<Aluno> searchByNome(String nome){
+        return alunoRepository.findByNome(nome);
+    }
+
     public Aluno findById(Long id){
         return alunoRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado."));
+    }
+
+    public Aluno findByMatricula(String matricula){
+        return alunoRepository.findByMatricula(matricula)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado."));
     }
 
