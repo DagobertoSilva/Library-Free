@@ -18,6 +18,7 @@ function setLogin(){
         if(error){
             errorText.textContent = error;
         }else{
+            errorText.textContent = "";
             localStorage.setItem("usuarioNome", data.nome);
             window.location.href = "./books.html";
         }
