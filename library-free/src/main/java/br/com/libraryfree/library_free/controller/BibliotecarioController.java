@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/libraryfree")
 public class BibliotecarioController {
@@ -30,7 +32,7 @@ public class BibliotecarioController {
     private AuthenticationManager authenticationManager;
 
     @PostMapping("/auth/login")
-    public ResponseEntity<BibliotecarioDTO> login(@RequestBody LoginDTO loginDTO, HttpServletRequest request) {
+    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO, HttpServletRequest request) {
         Authentication authentication;
         try {
             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
@@ -44,8 +46,8 @@ public class BibliotecarioController {
             BibliotecarioDTO bibliotecarioDTO =  bibliotecarioService.getBibliotecarioDTO(authentication);
             return ResponseEntity.ok(bibliotecarioDTO);
         } catch (AuthenticationException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            Map<String, String> errorResponse = Map.of("message", "Email ou senha incorreto");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
         }
-
     }
 }
