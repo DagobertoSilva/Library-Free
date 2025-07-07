@@ -14,6 +14,16 @@ export function LOGIN(body){
     }
 }
 
+export function LOGOUT() {
+    return {
+        url: `${API_URL}/auth/logout`,
+        options: {
+            method: 'POST',
+            credentials: 'include'
+        }
+    };
+}
+
 export function GET_LIVROS(){
     return{
         url: `${API_URL}/livros`,
@@ -26,7 +36,7 @@ export function GET_LIVROS(){
 export function FILTER_LIVROS(titulo){
     const encodedTitulo = encodeURIComponent(titulo);
     return{
-        url: `${API_URL}/livros/search/?=${encodedTitulo}`,
+        url: `${API_URL}/livros/search?titulo=${encodedTitulo}`,
         options: {
             credentials: 'include'
         }
@@ -45,7 +55,7 @@ export function GET_ALUNOS(){
 export function FILTER_ALUNOS(nome){
     const encodedNome = encodeURIComponent(nome);
     return{
-        url: `${API_URL}/alunos/search/?=${encodedTitle}`,
+        url: `${API_URL}/alunos/search?nome=${encodedNome}`,
         options: {
             credentials: 'include'
         }
