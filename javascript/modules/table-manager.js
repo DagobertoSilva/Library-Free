@@ -1,3 +1,5 @@
+import { fetchData } from '../services/fetch.js';
+
 export function createPaginatedTable(config){
     let dataList = [];
     let currentPage = 1;
@@ -23,7 +25,8 @@ export function createPaginatedTable(config){
     async function updateDataList(updatedList){
         console.log(updatedList);
         if(updatedList === null){
-            const response = await fetch(config.source)
+            const response = await fetchData(config.source.url, config.source.options);
+            console.log(config.source);
             dataList = await response.json();
         }else{
             dataList = updatedList;

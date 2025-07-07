@@ -17,6 +17,9 @@ function setLogin(){
         const {data, error} = await fetchData(url,options);
         if(error){
             errorText.textContent = error;
+        }else{
+            localStorage.setItem("usuarioNome", data.nome);
+            window.location.href = "./books.html";
         }
     }
 }

@@ -1,4 +1,5 @@
 import { createPaginatedTable } from '../modules/table-manager.js';
+import { GET_LIVROS } from '../services/api.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const reserveBookModal = document.getElementById('reserveBookModal');
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const bookConfig = {
-        source: "../data/books.json",
+        source: GET_LIVROS(),
         renderRow: (book) => {
             const lendIcon = `
             <button class="lendIcon" data-book-isbn="${book.isbn}" data-book-title="${book.titulo}">

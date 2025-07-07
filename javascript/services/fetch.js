@@ -5,8 +5,8 @@ export async function fetchData(url, options) {
         if (!response.ok) {
             throw new Error(`${json.message}`);
         }
-        return { data, error: null };
+        return { data: json, error: null };
     } catch (error) {
-        return {data: null, error: error.message}
+        return {json: null, error: error.message}
     }
 }
