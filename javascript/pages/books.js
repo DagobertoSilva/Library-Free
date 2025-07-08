@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const bookConfig = {
         source: GET_LIVROS(),
         renderRow: (book) => {
+            console.log(book);
             const lendIcon = `
             <button class="lendIcon" data-book-isbn="${book.isbn}" data-book-title="${book.titulo}">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,13 +57,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             </button>
             `;
 
+            const bookFlag = book.emprestado ? "Ocupado" : "Livre"
+
             return `
                 <td>${book.isbn}</td>
                 <td>${book.titulo}</td>
                 <td>${book.genero}</td>
-                <td><span class="${book.status.toLowerCase()}">${book.status}</span></td>
+                <td><span class="${bookFlag.toLowerCase()}">${bookFlag}</span></td>
                 <td class="table-body-actions">
-                    ${book.status.toLowerCase() === "livre" ? lendIcon : returnIcon}
+                    ${book.emprestado ? returnIcon : lendIcon}
                     ${editIcon}
                     ${deleteIcon}
                 </td>

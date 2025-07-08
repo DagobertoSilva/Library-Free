@@ -25,11 +25,13 @@ const userConfig = {
             </svg>
         </button>
         `;
+
+        const userFlag = user.ativo ? "Ativo" : "Inativo"
         return `
             <td>${user.matricula}</td>
             <td>${user.nome}</td>
             <td>${user.cpf}</td>
-            <td><span class="${user.status.toLowerCase()}">${user.status}</span></td>
+            <td><span class="${userFlag.toLowerCase()}">${userFlag}</span></td>
             <td class="table-body-actions">
                 ${editIcon}
                 ${deleteIcon}
