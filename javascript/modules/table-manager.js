@@ -29,6 +29,7 @@ export function createPaginatedTable(config){
             dataList = data;
             currentPage = 1;
             lastPage = Math.ceil(dataList.length / dataPerPage);
+            updatePageStates();
             paginateData();
         }
         

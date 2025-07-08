@@ -15,12 +15,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         usersData = await response.json();
     } catch (error) {
         console.error("Erro ao carregar dados de usuários:", error);
-        alert("Erro ao carregar lista de usuários. A validação pode falhar.");
+        // alert("Erro ao carregar lista de usuários. A validação pode falhar.");
     }
     const bookConfig = {
         source: GET_LIVROS(),
         renderRow: (book) => {
-            console.log(book);
             const lendIcon = `
             <button class="lendIcon" data-book-isbn="${book.isbn}" data-book-title="${book.titulo}">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
