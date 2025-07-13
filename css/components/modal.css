@@ -44,7 +44,6 @@
     outline: none;
 }
 
-/* Título principal do modal */
 .modal-content h2 {
     text-align: left;
     margin-bottom: 5px;
@@ -53,7 +52,6 @@
     line-height: 1.2;
 }
 
-/* Título do livro dentro do modal */
 .modal-content p.book-title-modal {
     text-align: left;
     margin-bottom: 25px;
@@ -62,7 +60,6 @@
     font-weight: bold;
 }
 
-/* Agrupamento de formulário */
 .form-group {
     margin-bottom: 20px;
 }
@@ -74,7 +71,6 @@
     color: var(--color-3);
 }
 
-/* Estilo para o container do input com ícone */
 .input-with-icon {
     position: relative;
     display: flex; 
@@ -114,7 +110,6 @@
 }
 
 
-/* Mostra o texto quando o campo está focado ou preenchido */
 .input-with-icon input[type="date"]:focus::-webkit-datetime-edit-month-field,
 .input-with-icon input[type="date"]:focus::-webkit-datetime-edit-day-field,
 .input-with-icon input[type="date"]:focus::-webkit-datetime-edit-year-field,
@@ -124,13 +119,11 @@
     color: var(--color-3);
 }
 
-/* Estiliza o placeholder real do HTML */
 .input-with-icon input[type="date"]::placeholder {
     color: var(--color-2);
     opacity: 1; 
 }
 
-/* Ações do modal (botões) */
 .modal-actions {
     display: flex;
     justify-content: flex-end; 
@@ -139,7 +132,6 @@
 }
 
 .modal-actions button {
-    /* Redefinir estilos para anular completamente o Bootstrap e outros padrões */
     padding: 8px 16px; 
     border-radius: 4px;
     font-weight: 600;
