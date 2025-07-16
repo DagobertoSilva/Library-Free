@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9; 
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 5%; 
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px; 
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    
+}
+
+.main-nav a:hover {
+    color: #000;
+}
+
+.main-nav i {
+    font-size: 1.5rem;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    
+}
+
+.logout-button {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+main {
+    padding: 0 5%; 
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.welcome-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    color: #777;
+    margin: 5px 0 0;
+}
+
+.loans-section h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    background-color: white;
+}
+
+.book-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.book-card {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 8px; 
+    padding: 15px;
+    text-align: center;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.book-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.book-card img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.book-card h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgb(99, 48, 122);
+}
+
+.book-card .loan-dates {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.book-card .loan-user {
+    font-size: 0.8rem;
+    color: #8d6464;
+    margin: 5px 0 0 0;
+}
+
+footer {
+    border-top: 1px solid #eee;
+    margin-top: 80px;
+    padding: 30px 5%;
+    text-align: left;
+}
+
+.social-media {
+    margin-bottom: 30px;
+}
+
+.social-media span {
+    margin-right: 15px;
+}
+
+.social-media a {
+    color: #555;
+    font-size: 1.2rem;
+    margin: 0 8px;
+}
+
+.copyright p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #8d6464;
+    text-align: center;
+}

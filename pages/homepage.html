@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> 
+    <head>
+        <meta charset="UTF-8">
+        <title>Library Free - Homepage</title>
+        <link rel="stylesheet" href="../css/pages/homepage.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+
+        <header>
+            <div class="header-left">
+                <h1>Library Free</h1>
+            </div>
+            <div class="header-right">
+                <nav class="main-nav">
+                    <a href="homepage.html"><i class="fas fa-home"></i></a>
+                    <a href="./books.html">Livros</a>
+                    <a href="./users.html">Usuários</a>
+                </nav>
+                <div class="user-menu">
+                    <img src="https://i.pravatar.cc/40" alt="Avatar do Usuário" class="user-avatar">
+                    <button onclick="window.location.href='./login.html';" class="logout-button">Sair</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="welcome-section">
+                <h1>Seja Bem-vindo</h1>
+                <p>Library Free</p>
+            </section>
+
+            <section class="loans-section">
+                <h2>Últimos empréstimos</h2>
+                <div class="book-gallery">
+                    <div class="book-card">
+                        <img src="/HomePage/srcs/senhor.jpeg" alt="Capa do livro O Senhor dos Anéis">
+                        <h4>O Senhor dos Anéis</h4>
+                        <p class="loan-dates">07/06/2025 - 14/06/2025</p>
+                        <p class="loan-user">Empréstimo feito a Antônio</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="/HomePage/srcs/casmurro.jpeg" alt="Capa do livro Dom Casmurro">
+                        <h4>Dom Casmurro</h4>
+                        <p class="loan-dates">07/06/2025 - 14/06/2025</p>
+                        <p class="loan-user">Empréstimo feito a Francisco</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="/HomePage/srcs/sherlock.jpeg" alt="Capa do livro Sherlock Holmes">
+                        <h4>Sherlock Holmes</h4>
+                        <p class="loan-dates">07/06/2025 - 14/06/2025</p>
+                        <p class="loan-user">Empréstimo feito a José</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="/HomePage/srcs/iracema.jpeg" alt="Capa do livro Iracema">
+                        <h4>Iracema</h4>
+                        <p class="loan-dates">07/06/2025 - 14/06/2025</p>
+                        <p class="loan-user">Empréstimo feito a João</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-media">
+                <span>Conheça nossas redes sociais</span>
+                <a href="#"><i class="fab fa-x"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; Copyright - 2025</p>
+                <p>Library Free - Open Source</p>
+            </div>
+        </footer>
+
+    </body>
+</html>
