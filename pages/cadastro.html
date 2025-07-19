@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Cadastro de livros</title>
+        <link rel="stylesheet" href="../css/pages/cadastro.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    </head>
+
+    <body>
+        <header>
+            <div class="header-left">
+            </div>
+            <div class="header-right">
+                <nav class="main-nav">
+                    <a href="./homepage.html"><i class="fas fa-home"></i></a>
+                    <a href="./books.html">Livros</a>
+                    <a href="./users.html">Usuários</a>
+                </nav>
+                <div class="user-menu">
+                    <img src="https://i.pravatar.cc/40" alt="Avatar do Usuário" class="user-avatar">
+                    <button onclick="window.location.href='./login.html';" class="logout-button">Sair</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="titulo">
+                <h1>Castro de Livros</h1>
+                <h3 class="font">Library Free</h3>
+            </div>
+
+            <section class="form-section">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="titulo">Titulo</label>
+                            <input type="text" id="titulo" placeholder="titulo">
+                        </div>
+                        <div class="form-group">
+                            <label for="isbn">ISBN</label>
+                            <input type="text" id="isbn" placeholder="isbn">
+                        </div>
+                        <div class="form-group">
+                            
+                            <label for="autor">Autor</label>
+                            <input type="text" id="autor" placeholder="Autor">
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="genero">Genero</label>
+                            <input type="text" id="genero" placeholder="Gênero">
+                        </div>
+                        <div class="form-group">
+                            <label for="edicao">Edição</label>
+                            <input type="text" id="edicao" placeholder="Edição">
+                        </div>
+                        <div class="form-group">
+                            <label for="data-publicacao">Data da publicação</label>
+                            <input type="text" id="data-publicacao" placeholder="Data da publicação">
+                        </div>
+                        <div class="form-group">
+                            <label for="editora">Editora</label>
+                            <input type="text" id="editora" placeholder="Editora">
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-check"></i> Salvar
+                        </button>
+                        <button type="button" class="btn-cancel">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                    </div>                    
+
+                </form>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="social-media">
+                <span>Conheça nossas redes sociais</span>
+                <a href="#"><i class="fab fa-x"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; Copyright - 2025</p>
+                <p>Library Free - Open Source</p>
+            </div>
+        </footer>
+
+
+    </body>
+
+
+
+</html>
