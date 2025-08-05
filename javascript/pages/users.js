@@ -43,3 +43,8 @@ const userConfig = {
     }
 }
 createPaginatedTable(userConfig);
+
+const addButton = document.getElementById("btn-add");
+addButton.addEventListener('click', () => {
+    window.location.href = "./register-user.html";
+});

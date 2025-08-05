@@ -1,4 +1,4 @@
-import {  CREATE_LIVRO } from '../services/api.js';
+import { CREATE_LIVRO } from '../services/api.js';
 import { fetchData } from '../services/fetch.js';
 
 const bookRegisterForm = document.getElementById('bookRegisterForm');
@@ -9,12 +9,9 @@ const generoInput = document.getElementById('genre');
 const edicaoInput = document.getElementById('edition');
 const dataPublicacaoInput = document.getElementById('date');
 const editoraInput = document.getElementById('publisher');
-console.log(bookRegisterForm)
-
-bookRegisterForm.addEventListener('submit', handleSubmit)
-async function handleSubmit(event){
+bookRegisterForm.addEventListener('submit', bookHandleSubmit)
+async function bookHandleSubmit(event){
     event.preventDefault();
-
     const updatedBookData = {
         titulo: tituloInput.value,
         isbn: isbnInput.value,
@@ -26,10 +23,9 @@ async function handleSubmit(event){
         emprestado: false
     };
     const {url, options} = CREATE_LIVRO(updatedBookData);
-    const {data, error} = await fetchData(url, options);
+    const { error } = await fetchData(url, options);
     if(error){
         alert("ISBN já existente")
-        error = null;
     }else{
         alert("Livro cadastrado com sucesso.");
         setTimeout(() => {
