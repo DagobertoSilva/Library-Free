@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const params = new URLSearchParams(window.location.search);
-    const bookId = params.get('id'); 
+    const bookId = params.get('id');
 
     if (bookId) {
         currentBookId = bookId;

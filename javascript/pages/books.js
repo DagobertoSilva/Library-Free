@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const bookTitleModal = document.querySelector('.book-title-modal');
     const reserveForm = document.getElementById('reserveForm');
     const deliveryDateInput = document.getElementById('deliveryDate');
+    const addButton = document.getElementById('btn-add');
+    console.log(addButton);
     let selectedBook = null;
 
     const bookConfig = {
@@ -199,5 +201,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         reserveBookModal.style.display = 'none';
         reserveForm.reset();
         selectedBook = null;
+    });
+
+    addButton.addEventListener('click', () => {
+        window.location.href = "./register-book.html";
     });
 });
