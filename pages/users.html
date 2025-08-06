@@ -15,7 +15,7 @@
     <header class="container">
         <nav>
             <ul class="menu-list">
-                <li><a href="#" class="menu-item home" aria-label="Página inicial"><img src="../img/home.svg" alt="""></a></li>
+                <li><a href="./home.html" class="menu-item home" aria-label="Página inicial"><img src="../img/home.svg" alt="""></a></li>
                 <li><a href="./books.html" class="menu-item text">Livros</a></li>
                 <li><a href="./users.html" class="menu-item active text">Usuários</a></li>
                 <li><a href="#" class="menu-item exit">Sair</a></li>
@@ -76,7 +76,17 @@
             </button>
         </div>
     </section>
-    
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <button type="button" class="close-button">&times;</button>
+            <h2 id="confirmModalTitle"></h2>
+            <p id="confirmModalBody" class="book-title-modal"></p>
+            <div class="modal-actions">
+                <button type="button" class="btn-positive" id="confirmModalCancel">Não</button>
+                <button type="button" class="btn-warning" id="confirmModalConfirm">Sim</button>
+            </div>
+        </div>
+    </div>
     <footer class="footer">
         <div class="social-network container">
             <p>Conheça nossas redes sociais:</p>
