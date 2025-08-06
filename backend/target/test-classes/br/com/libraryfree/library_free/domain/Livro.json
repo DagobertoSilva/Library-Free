@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "titulo": "O Senhor dos Anéis",
+  "isbn": "9788595084759",
+  "autor": "J.R.R. Tolkien",
+  "genero": "Fantasia",
+  "edicao": "Volume Único",
+  "publicacao": "2019-11-01",
+  "editora": "HarperCollins Brasil",
+  "emprestado": false,
+  "emprestimos": []
+}
