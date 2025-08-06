@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface EmprestimoRepository extends CrudRepository<Emprestimo, Long> {
     Optional<Emprestimo> findByLivroIdAndAtivoTrue(Long livroId);
+    Iterable<Emprestimo> findTop4ByAtivoIsTrueOrderByDataEmprestimoDesc();
 }

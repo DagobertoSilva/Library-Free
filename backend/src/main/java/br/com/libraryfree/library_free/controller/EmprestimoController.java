@@ -23,6 +23,12 @@ public class EmprestimoController {
         return ResponseEntity.ok(emprestimos);
     }
 
+    @GetMapping("/emprestimos/recentes")
+    public ResponseEntity<List<EmprestimoResponseDTO>> findLatestActiveLoans(){
+        List<EmprestimoResponseDTO> emprestimos = emprestimoService.findLatestActiveLoans();
+        return ResponseEntity.ok(emprestimos);
+    }
+
     @GetMapping("/emprestimos/{requestedID}")
     public ResponseEntity<EmprestimoResponseDTO> findById(@PathVariable Long requestedID){
         EmprestimoResponseDTO emprestimo = emprestimoService.findById(requestedID);

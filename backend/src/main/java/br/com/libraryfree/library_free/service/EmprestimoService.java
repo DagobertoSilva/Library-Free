@@ -35,6 +35,15 @@ public class EmprestimoService {
         return emprestimosDTO;
     }
 
+    public List<EmprestimoResponseDTO> findLatestActiveLoans(){
+        Iterable<Emprestimo> emprestimos = emprestimoRepository.findTop4ByAtivoIsTrueOrderByDataEmprestimoDesc();
+        List<EmprestimoResponseDTO> emprestimosDTO = new LinkedList<>();
+        emprestimos.forEach(
+                (emprestimo) -> emprestimosDTO.add(new EmprestimoResponseDTO(emprestimo))
+        );
+        return emprestimosDTO;
+    }
+
     public EmprestimoResponseDTO findById(Long id){
        Emprestimo emprestimo = emprestimoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Empréstimo não encontrado."));

@@ -56,6 +56,22 @@ public class EmprestimoIntegrationTests {
     }
 
     @Test
+    public void shouldReturn4ActiveEmprestimosWhenAuthenticated() {
+        ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
+        HttpHeaders headers = createHeadersWithCookie(loginResponse);
+        HttpEntity<Void> request = new HttpEntity<>(headers);
+        ParameterizedTypeReference<List<EmprestimoResponseDTO>> responseType = new ParameterizedTypeReference<>() {};
+        ResponseEntity<List<EmprestimoResponseDTO>> getResponse = testRestTemplate.exchange(
+                "/libraryfree/emprestimos/recentes",
+                HttpMethod.GET,
+                request,
+                responseType
+        );
+        assertThat(getResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(getResponse.getBody()).isNotNull();
+    }
+
+    @Test
     public void shouldReturnEmprestimoWhenIdExists() {
         ResponseEntity<BibliotecarioDTO> loginResponse = BibliotecarioLogin();
         HttpHeaders headers = createHeadersWithCookie(loginResponse);
