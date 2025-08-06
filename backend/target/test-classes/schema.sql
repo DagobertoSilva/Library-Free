@@ -1,0 +1,38 @@
+CREATE TABLE Bibliotecario (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Aluno (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    matricula VARCHAR(50) NOT NULL UNIQUE,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    ativo BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE Livro (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(255) NOT NULL,
+    isbn VARCHAR(20) NOT NULL UNIQUE,
+    autor VARCHAR(255),
+    genero VARCHAR(100),
+    edicao VARCHAR(100),
+    publicacao DATE,
+    editora VARCHAR(100),
+    emprestado BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE Aluno_Livro (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    aluno_id BIGINT NOT NULL,
+    livro_id BIGINT NOT NULL,
+    data_emprestimo DATE NOT NULL,
+    prazo_devolucao DATE NOT NULL,
+    data_devolucao DATE,
+    ativo BOOLEAN NOT NULL DEFAULT TRUE,
+    FOREIGN KEY (aluno_id) REFERENCES Aluno(id),
+    FOREIGN KEY (livro_id) REFERENCES Livro(id)
+);

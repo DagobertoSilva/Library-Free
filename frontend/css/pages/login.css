@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    text-align: left;
+}
+
+h1{
+    text-shadow: #333;
+    font-size: 4rem;
+    font-weight: 700;
+    
+}
+
+p{
+    font-size: 1.8rem;
+    color: #555;
+    margin: -50px 0 0;
+}
+
+.tela-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    
+}
+
+.mens-login{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.fazendo-login{
+    background-color: white;
+    padding: 30px;
+    border-radius: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 250px;
+}
+
+.form-grupo{
+    margin-bottom: 20px;
+}
+
+.form-grupo label{
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+    color: #333;
+}
+
+.form-grupo input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+a{
+    color: black;
+}
+
+button{
+    background-color: rgb(56, 44, 44);
+    color: rgb(180, 138, 138);
+    width: 100%;
+    padding: 12px;
+    border: solid maroon;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.esqueci-senha-link{
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #2c1010;
+    text-decoration: none;
+}
+
+.esqueci-senha-link:hover{
+    text-decoration: underline;
+}
+
+.error{
+    color: #f31 !important;
+    font-size: 0.875rem;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
