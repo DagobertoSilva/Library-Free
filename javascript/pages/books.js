@@ -207,6 +207,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = "./register-book.html";
     });
 
+    // Lógica para o modal de deleção de livro
+
     const confirmModal = document.getElementById('confirmModal');
     const confirmModalTitle = document.getElementById('confirmModalTitle');
     const confirmModalBody = document.getElementById('confirmModalBody');
