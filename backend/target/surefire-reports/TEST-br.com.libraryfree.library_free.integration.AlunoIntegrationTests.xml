@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="7.453" tests="16" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="24"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/Joao/Documentos/PI/Minha-Biblioteca/backend/target/test-classes:/home/Joao/Documentos/PI/Minha-Biblioteca/backend/target/classes:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.5.3/spring-boot-starter-security-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter/3.5.3/spring-boot-starter-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot/3.5.3/spring-boot-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.5.3/spring-boot-autoconfigure-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.5.3/spring-boot-starter-logging-3.5.3.jar:/home/Joao/.m2/repository/ch/qos/logback/logback-classic/1.5.18/logback-classic-1.5.18.jar:/home/Joao/.m2/repository/ch/qos/logback/logback-core/1.5.18/logback-core-1.5.18.jar:/home/Joao/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/home/Joao/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/home/Joao/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/home/Joao/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/Joao/.m2/repository/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/home/Joao/.m2/repository/org/springframework/spring-aop/6.2.8/spring-aop-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/spring-beans/6.2.8/spring-beans-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-config/6.5.1/spring-security-config-6.5.1.jar:/home/Joao/.m2/repository/org/springframework/spring-context/6.2.8/spring-context-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-web/6.5.1/spring-security-web-6.5.1.jar:/home/Joao/.m2/repository/org/springframework/spring-expression/6.2.8/spring-expression-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.5.3/spring-boot-starter-data-jpa-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.5.3/spring-boot-starter-jdbc-3.5.3.jar:/home/Joao/.m2/repository/com/zaxxer/HikariCP/6.3.0/HikariCP-6.3.0.jar:/home/Joao/.m2/repository/org/springframework/spring-jdbc/6.2.8/spring-jdbc-6.2.8.jar:/home/Joao/.m2/repository/org/hibernate/orm/hibernate-core/6.6.18.Final/hibernate-core-6.6.18.Final.jar:/home/Joao/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/home/Joao/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/Joao/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar:/home/Joao/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar:/home/Joao/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar:/home/Joao/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/home/Joao/.m2/repository/net/bytebuddy/byte-buddy/1.17.6/byte-buddy-1.17.6.jar:/home/Joao/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/home/Joao/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/home/Joao/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/home/Joao/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/home/Joao/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/home/Joao/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/Joao/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/home/Joao/.m2/repository/org/springframework/data/spring-data-jpa/3.5.1/spring-data-jpa-3.5.1.jar:/home/Joao/.m2/repository/org/springframework/data/spring-data-commons/3.5.1/spring-data-commons-3.5.1.jar:/home/Joao/.m2/repository/org/springframework/spring-orm/6.2.8/spring-orm-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/spring-tx/6.2.8/spring-tx-6.2.8.jar:/home/Joao/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/home/Joao/.m2/repository/org/springframework/spring-aspects/6.2.8/spring-aspects-6.2.8.jar:/home/Joao/.m2/repository/org/aspectj/aspectjweaver/1.9.24/aspectjweaver-1.9.24.jar:/home/Joao/.m2/repository/com/h2database/h2/2.3.232/h2-2.3.232.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.5.3/spring-boot-starter-validation-3.5.3.jar:/home/Joao/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.42/tomcat-embed-el-10.1.42.jar:/home/Joao/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.2.Final/hibernate-validator-8.0.2.Final.jar:/home/Joao/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.5.3/spring-boot-starter-web-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.5.3/spring-boot-starter-json-3.5.3.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.19.1/jackson-databind-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.19.1/jackson-annotations-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.19.1/jackson-core-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.19.1/jackson-datatype-jdk8-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.19.1/jackson-datatype-jsr310-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.19.1/jackson-module-parameter-names-2.19.1.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.5.3/spring-boot-starter-tomcat-3.5.3.jar:/home/Joao/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.42/tomcat-embed-core-10.1.42.jar:/home/Joao/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.42/tomcat-embed-websocket-10.1.42.jar:/home/Joao/.m2/repository/org/springframework/spring-web/6.2.8/spring-web-6.2.8.jar:/home/Joao/.m2/repository/io/micrometer/micrometer-observation/1.15.1/micrometer-observation-1.15.1.jar:/home/Joao/.m2/repository/io/micrometer/micrometer-commons/1.15.1/micrometer-commons-1.15.1.jar:/home/Joao/.m2/repository/org/springframework/spring-webmvc/6.2.8/spring-webmvc-6.2.8.jar:/home/Joao/.m2/repository/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.5.3/spring-boot-starter-test-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-test/3.5.3/spring-boot-test-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.5.3/spring-boot-test-autoconfigure-3.5.3.jar:/home/Joao/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/home/Joao/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/home/Joao/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/home/Joao/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/home/Joao/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/home/Joao/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/home/Joao/.m2/repository/org/assertj/assertj-core/3.27.3/assertj-core-3.27.3.jar:/home/Joao/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/home/Joao/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar:/home/Joao/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.2/junit-jupiter-5.12.2.jar:/home/Joao/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.2/junit-jupiter-api-5.12.2.jar:/home/Joao/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/Joao/.m2/repository/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.jar:/home/Joao/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/Joao/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.2/junit-jupiter-params-5.12.2.jar:/home/Joao/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.2/junit-jupiter-engine-5.12.2.jar:/home/Joao/.m2/repository/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.jar:/home/Joao/.m2/repository/org/mockito/mockito-core/5.17.0/mockito-core-5.17.0.jar:/home/Joao/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.6/byte-buddy-agent-1.17.6.jar:/home/Joao/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/Joao/.m2/repository/org/mockito/mockito-junit-jupiter/5.17.0/mockito-junit-jupiter-5.17.0.jar:/home/Joao/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/home/Joao/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/Joao/.m2/repository/org/springframework/spring-core/6.2.8/spring-core-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/spring-jcl/6.2.8/spring-jcl-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/spring-test/6.2.8/spring-test-6.2.8.jar:/home/Joao/.m2/repository/org/xmlunit/xmlunit-core/2.10.2/xmlunit-core-2.10.2.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-test/6.5.1/spring-security-test-6.5.1.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-core/6.5.1/spring-security-core-6.5.1.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-crypto/6.5.1/spring-security-crypto-6.5.1.jar:/home/Joao/.m2/repository/org/mariadb/jdbc/mariadb-java-client/3.5.4/mariadb-java-client-3.5.4.jar:"/>
+    <property name="java.vm.vendor" value="Arch Linux"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="catalina.useNaming" value="false"/>
+    <property name="java.vendor.url" value="https://openjdk.org/"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="24"/>
+    <property name="APPLICATION_NAME" value="library-free"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-24-openjdk/lib"/>
+    <property name="sun.java.command" value="/home/Joao/Documentos/PI/Minha-Biblioteca/backend/target/surefire/surefirebooter-20250806160920856_3.jar /home/Joao/Documentos/PI/Minha-Biblioteca/backend/target/surefire 2025-08-06T16-09-20_747-jvmRun1 surefire-20250806160920856_1tmp surefire_0-20250806160920856_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/Joao/Documentos/PI/Minha-Biblioteca/backend/target/test-classes:/home/Joao/Documentos/PI/Minha-Biblioteca/backend/target/classes:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.5.3/spring-boot-starter-security-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter/3.5.3/spring-boot-starter-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot/3.5.3/spring-boot-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.5.3/spring-boot-autoconfigure-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.5.3/spring-boot-starter-logging-3.5.3.jar:/home/Joao/.m2/repository/ch/qos/logback/logback-classic/1.5.18/logback-classic-1.5.18.jar:/home/Joao/.m2/repository/ch/qos/logback/logback-core/1.5.18/logback-core-1.5.18.jar:/home/Joao/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/home/Joao/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/home/Joao/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/home/Joao/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/Joao/.m2/repository/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/home/Joao/.m2/repository/org/springframework/spring-aop/6.2.8/spring-aop-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/spring-beans/6.2.8/spring-beans-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-config/6.5.1/spring-security-config-6.5.1.jar:/home/Joao/.m2/repository/org/springframework/spring-context/6.2.8/spring-context-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-web/6.5.1/spring-security-web-6.5.1.jar:/home/Joao/.m2/repository/org/springframework/spring-expression/6.2.8/spring-expression-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.5.3/spring-boot-starter-data-jpa-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.5.3/spring-boot-starter-jdbc-3.5.3.jar:/home/Joao/.m2/repository/com/zaxxer/HikariCP/6.3.0/HikariCP-6.3.0.jar:/home/Joao/.m2/repository/org/springframework/spring-jdbc/6.2.8/spring-jdbc-6.2.8.jar:/home/Joao/.m2/repository/org/hibernate/orm/hibernate-core/6.6.18.Final/hibernate-core-6.6.18.Final.jar:/home/Joao/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/home/Joao/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/Joao/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar:/home/Joao/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar:/home/Joao/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar:/home/Joao/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/home/Joao/.m2/repository/net/bytebuddy/byte-buddy/1.17.6/byte-buddy-1.17.6.jar:/home/Joao/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/home/Joao/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/home/Joao/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/home/Joao/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/home/Joao/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/home/Joao/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/Joao/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/home/Joao/.m2/repository/org/springframework/data/spring-data-jpa/3.5.1/spring-data-jpa-3.5.1.jar:/home/Joao/.m2/repository/org/springframework/data/spring-data-commons/3.5.1/spring-data-commons-3.5.1.jar:/home/Joao/.m2/repository/org/springframework/spring-orm/6.2.8/spring-orm-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/spring-tx/6.2.8/spring-tx-6.2.8.jar:/home/Joao/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/home/Joao/.m2/repository/org/springframework/spring-aspects/6.2.8/spring-aspects-6.2.8.jar:/home/Joao/.m2/repository/org/aspectj/aspectjweaver/1.9.24/aspectjweaver-1.9.24.jar:/home/Joao/.m2/repository/com/h2database/h2/2.3.232/h2-2.3.232.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.5.3/spring-boot-starter-validation-3.5.3.jar:/home/Joao/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.42/tomcat-embed-el-10.1.42.jar:/home/Joao/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.2.Final/hibernate-validator-8.0.2.Final.jar:/home/Joao/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.5.3/spring-boot-starter-web-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.5.3/spring-boot-starter-json-3.5.3.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.19.1/jackson-databind-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.19.1/jackson-annotations-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.19.1/jackson-core-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.19.1/jackson-datatype-jdk8-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.19.1/jackson-datatype-jsr310-2.19.1.jar:/home/Joao/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.19.1/jackson-module-parameter-names-2.19.1.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.5.3/spring-boot-starter-tomcat-3.5.3.jar:/home/Joao/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.42/tomcat-embed-core-10.1.42.jar:/home/Joao/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.42/tomcat-embed-websocket-10.1.42.jar:/home/Joao/.m2/repository/org/springframework/spring-web/6.2.8/spring-web-6.2.8.jar:/home/Joao/.m2/repository/io/micrometer/micrometer-observation/1.15.1/micrometer-observation-1.15.1.jar:/home/Joao/.m2/repository/io/micrometer/micrometer-commons/1.15.1/micrometer-commons-1.15.1.jar:/home/Joao/.m2/repository/org/springframework/spring-webmvc/6.2.8/spring-webmvc-6.2.8.jar:/home/Joao/.m2/repository/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.5.3/spring-boot-starter-test-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-test/3.5.3/spring-boot-test-3.5.3.jar:/home/Joao/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.5.3/spring-boot-test-autoconfigure-3.5.3.jar:/home/Joao/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/home/Joao/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/home/Joao/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/home/Joao/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/home/Joao/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/home/Joao/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/home/Joao/.m2/repository/org/assertj/assertj-core/3.27.3/assertj-core-3.27.3.jar:/home/Joao/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/home/Joao/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar:/home/Joao/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.2/junit-jupiter-5.12.2.jar:/home/Joao/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.2/junit-jupiter-api-5.12.2.jar:/home/Joao/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/Joao/.m2/repository/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.jar:/home/Joao/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/Joao/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.2/junit-jupiter-params-5.12.2.jar:/home/Joao/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.2/junit-jupiter-engine-5.12.2.jar:/home/Joao/.m2/repository/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.jar:/home/Joao/.m2/repository/org/mockito/mockito-core/5.17.0/mockito-core-5.17.0.jar:/home/Joao/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.6/byte-buddy-agent-1.17.6.jar:/home/Joao/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/Joao/.m2/repository/org/mockito/mockito-junit-jupiter/5.17.0/mockito-junit-jupiter-5.17.0.jar:/home/Joao/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/home/Joao/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/Joao/.m2/repository/org/springframework/spring-core/6.2.8/spring-core-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/spring-jcl/6.2.8/spring-jcl-6.2.8.jar:/home/Joao/.m2/repository/org/springframework/spring-test/6.2.8/spring-test-6.2.8.jar:/home/Joao/.m2/repository/org/xmlunit/xmlunit-core/2.10.2/xmlunit-core-2.10.2.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-test/6.5.1/spring-security-test-6.5.1.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-core/6.5.1/spring-security-core-6.5.1.jar:/home/Joao/.m2/repository/org/springframework/security/spring-security-crypto/6.5.1/spring-security-crypto-6.5.1.jar:/home/Joao/.m2/repository/org/mariadb/jdbc/mariadb-java-client/3.5.4/mariadb-java-client-3.5.4.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/Joao"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-04-15"/>
+    <property name="java.home" value="/usr/lib/jvm/java-24-openjdk"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/Joao/Documentos/PI/Minha-Biblioteca/backend"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="/home/Joao/Documentos/PI/Minha-Biblioteca/backend/target/surefire/surefirebooter-20250806160920856_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="24.0.1"/>
+    <property name="user.name" value="Joao"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.15.5-arch1-1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/Joao/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="catalina.home" value="/tmp/tomcat.0.8520924569149938152"/>
+    <property name="com.zaxxer.hikari.pool_number" value="3"/>
+    <property name="java.version" value="24.0.1"/>
+    <property name="user.dir" value="/home/Joao/Documentos/PI/Minha-Biblioteca/backend"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="24532"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="catalina.base" value="/tmp/tomcat.0.17646781517819562473"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Arch Linux"/>
+    <property name="java.vm.version" value="24.0.1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="68.0"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[library-free] "/>
+  </properties>
+  <testcase name="shouldReturnFilteredAlunos" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.439">
+    <system-out><![CDATA[2025-08-06T16:09:31.201-03:00  INFO 24532 --- [library-free] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.libraryfree.library_free.integration.AlunoIntegrationTests]: AlunoIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-06T16:09:31.204-03:00  INFO 24532 --- [library-free] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.libraryfree.library_free.LibraryFreeApplication for test class br.com.libraryfree.library_free.integration.AlunoIntegrationTests
+2025-08-06T16:09:31.216-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:36723/libraryfree/auth/login
+2025-08-06T16:09:31.216-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:31.217-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:31.224-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:31.225-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:31.226-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:31.226-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:31.226-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:31.227-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:31.576-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:31.577-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:31.578-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:31.579-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:31.579-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:31.579-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:31.581-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:36723/libraryfree/alunos/search?nome=Ana
+2025-08-06T16:09:31.583-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:31.585-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos/search?nome=Ana
+2025-08-06T16:09:31.586-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-7] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@49bf6196, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:31.586-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /libraryfree/alunos/search?nome=Ana
+2025-08-06T16:09:31.586-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/libraryfree/alunos/search?nome=Ana", parameters={masked}
+2025-08-06T16:09:31.587-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#searchByNome(String)
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where upper(a1_0.nome) like replace(concat('%',upper(?),'%'),'\\','\\\\')
+2025-08-06T16:09:31.624-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+2025-08-06T16:09:31.632-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Aluno(id=4, nome=Ana Souza, matricula=20230004, cpf=456.789.012-33, ativo=false, emprestimos=[])]]
+2025-08-06T16:09:31.641-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:31.641-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:31.641-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [java.lang.Iterable<br.com.libraryfree.library_free.domain.Aluno>]
+]]></system-out>
+  </testcase>
+  <testcase name="shouldCreateAlunoWhenMatriculaAndCpfDoesNotExist" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.506">
+    <system-out><![CDATA[2025-08-06T16:09:31.655-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:36723/libraryfree/auth/login
+2025-08-06T16:09:31.655-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:31.655-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:31.659-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:31.660-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:31.660-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:31.660-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:31.660-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:31.662-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:32.002-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:32.003-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:32.003-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:32.004-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:32.005-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:32.005-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:32.006-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:36723/libraryfree/alunos
+2025-08-06T16:09:32.006-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:32.006-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [Aluno(id=null, nome=Fernanda Almeida, matricula=20240005, cpf=567.890.123-44, ativo=true, emprestimos=[])] as "application/json"
+2025-08-06T16:09:32.009-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/alunos
+2025-08-06T16:09:32.009-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-9] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@37cb087f, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:32.009-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-9] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/alunos
+2025-08-06T16:09:32.009-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/alunos", parameters={}
+2025-08-06T16:09:32.010-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#createAluno(Aluno, UriComponentsBuilder)
+2025-08-06T16:09:32.011-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Aluno(id=null, nome=Fernanda Almeida, matricula=20240005, cpf=567.890.123-44, ativo=true, emprestimo (truncated)...]
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.matricula=?
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.cpf=?
+Hibernate: insert into aluno (ativo,cpf,matricula,nome) values (?,?,?,?)
+2025-08-06T16:09:32.102-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:32.102-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2025-08-06T16:09:32.102-03:00 DEBUG 24532 --- [library-free] [o-auto-1-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-06T16:09:32.105-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 201 CREATED
+2025-08-06T16:09:32.105-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:36723/libraryfree/alunos/5
+2025-08-06T16:09:32.108-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:32.110-03:00 DEBUG 24532 --- [library-free] [-auto-1-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos/5
+2025-08-06T16:09:32.111-03:00 DEBUG 24532 --- [library-free] [-auto-1-exec-10] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@37cb087f, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:32.111-03:00 DEBUG 24532 --- [library-free] [-auto-1-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /libraryfree/alunos/5
+2025-08-06T16:09:32.111-03:00 DEBUG 24532 --- [library-free] [-auto-1-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/libraryfree/alunos/5", parameters={}
+2025-08-06T16:09:32.111-03:00 DEBUG 24532 --- [library-free] [-auto-1-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#findById(Long)
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+2025-08-06T16:09:32.124-03:00 DEBUG 24532 --- [library-free] [-auto-1-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+2025-08-06T16:09:32.125-03:00 DEBUG 24532 --- [library-free] [-auto-1-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Aluno(id=5, nome=Fernanda Almeida, matricula=20240005, cpf=567.890.123-44, ativo=true, emprestimos=[ (truncated)...]
+2025-08-06T16:09:32.127-03:00 DEBUG 24532 --- [library-free] [-auto-1-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:32.127-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:32.127-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.domain.Aluno]
+2025-08-06T16:09:32.133-03:00  INFO 24532 --- [library-free] [           main] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-06T16:09:32.135-03:00  INFO 24532 --- [library-free] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-06T16:09:32.140-03:00  INFO 24532 --- [library-free] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-06T16:09:32.143-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-06T16:09:32.146-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="shouldDeleteAlunoWhenIdExists" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.741">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.3)
+
+2025-08-06T16:09:32.195-03:00  INFO 24532 --- [library-free] [           main] b.c.l.l.i.AlunoIntegrationTests          : Starting AlunoIntegrationTests using Java 24.0.1 with PID 24532 (started by Joao in /home/Joao/Documentos/PI/Minha-Biblioteca/backend)
+2025-08-06T16:09:32.195-03:00  INFO 24532 --- [library-free] [           main] b.c.l.l.i.AlunoIntegrationTests          : The following 1 profile is active: "test"
+2025-08-06T16:09:32.387-03:00  INFO 24532 --- [library-free] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-06T16:09:32.396-03:00  INFO 24532 --- [library-free] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 4 JPA repository interfaces.
+2025-08-06T16:09:32.464-03:00  INFO 24532 --- [library-free] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-06T16:09:32.465-03:00  INFO 24532 --- [library-free] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-06T16:09:32.465-03:00  INFO 24532 --- [library-free] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-08-06T16:09:32.486-03:00  INFO 24532 --- [library-free] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-06T16:09:32.487-03:00  INFO 24532 --- [library-free] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 291 ms
+2025-08-06T16:09:32.518-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-08-06T16:09:32.527-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2025-08-06T16:09:32.528-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-08-06T16:09:32.555-03:00  INFO 24532 --- [library-free] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-06T16:09:32.557-03:00  INFO 24532 --- [library-free] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-06T16:09:32.567-03:00  INFO 24532 --- [library-free] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-06T16:09:32.568-03:00  WARN 24532 --- [library-free] [           main] org.hibernate.dialect.Dialect            : HHH000511: The 2.3.232 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-08-06T16:09:32.569-03:00  WARN 24532 --- [library-free] [           main] org.hibernate.orm.deprecation            : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-06T16:09:32.570-03:00  INFO 24532 --- [library-free] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-06T16:09:32.625-03:00  INFO 24532 --- [library-free] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-06T16:09:32.625-03:00  INFO 24532 --- [library-free] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-06T16:09:32.682-03:00  INFO 24532 --- [library-free] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-08-06T16:09:32.709-03:00  WARN 24532 --- [library-free] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-06T16:09:32.754-03:00 DEBUG 24532 --- [library-free] [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 21 mappings in 'requestMappingHandlerMapping'
+2025-08-06T16:09:32.779-03:00 DEBUG 24532 --- [library-free] [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-08-06T16:09:32.789-03:00 DEBUG 24532 --- [library-free] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-06T16:09:32.805-03:00 DEBUG 24532 --- [library-free] [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-08-06T16:09:32.811-03:00 DEBUG 24532 --- [library-free] [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-08-06T16:09:32.886-03:00  INFO 24532 --- [library-free] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 38247 (http) with context path '/'
+2025-08-06T16:09:32.890-03:00  INFO 24532 --- [library-free] [           main] b.c.l.l.i.AlunoIntegrationTests          : Started AlunoIntegrationTests in 0.724 seconds (process running for 11.955)
+2025-08-06T16:09:32.898-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38247/libraryfree/auth/login
+2025-08-06T16:09:32.900-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:32.901-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:32.909-03:00  INFO 24532 --- [library-free] [o-auto-2-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-06T16:09:32.909-03:00  INFO 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-06T16:09:32.910-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-08-06T16:09:32.910-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-08-06T16:09:32.910-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-08-06T16:09:32.913-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1236926e
+2025-08-06T16:09:32.913-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@4159c03b
+2025-08-06T16:09:32.913-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-06T16:09:32.913-03:00  INFO 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-08-06T16:09:32.916-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:32.916-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:32.917-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:32.917-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:32.917-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:32.927-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:33.460-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:33.462-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:33.463-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:33.464-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:33.464-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:33.465-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:33.466-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP DELETE http://localhost:38247/libraryfree/alunos/1
+2025-08-06T16:09:33.466-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:33.469-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-2] o.s.security.web.FilterChainProxy        : Securing DELETE /libraryfree/alunos/1
+2025-08-06T16:09:33.469-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-2] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@219d8909, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:33.469-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-2] o.s.security.web.FilterChainProxy        : Secured DELETE /libraryfree/alunos/1
+2025-08-06T16:09:33.469-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-2] o.s.web.servlet.DispatcherServlet        : DELETE "/libraryfree/alunos/1", parameters={}
+2025-08-06T16:09:33.470-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#deleteAluno(Long)
+Hibernate: select count(*) from aluno a1_0 where a1_0.id=?
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+Hibernate: delete from aluno_livro where id=?
+Hibernate: delete from aluno_livro where id=?
+Hibernate: delete from aluno where id=?
+2025-08-06T16:09:33.551-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:33.551-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2025-08-06T16:09:33.551-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 204 NO_CONTENT
+2025-08-06T16:09:33.554-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 204 NO_CONTENT
+2025-08-06T16:09:33.555-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:38247/libraryfree/alunos/1
+2025-08-06T16:09:33.565-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:33.570-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos/1
+2025-08-06T16:09:33.571-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@219d8909, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:33.571-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /libraryfree/alunos/1
+2025-08-06T16:09:33.571-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/libraryfree/alunos/1", parameters={}
+2025-08-06T16:09:33.573-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#findById(Long)
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+2025-08-06T16:09:33.587-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 404 NOT_FOUND "Aluno não encontrado."]
+2025-08-06T16:09:33.587-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-08-06T16:09:33.597-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-08-06T16:09:33.599-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@219d8909, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:33.599-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /error
+2025-08-06T16:09:33.600-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-08-06T16:09:33.600-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-06T16:09:33.606-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:33.611-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Aug 06 16:09:33 GMT-03:00 2025, status=404, error=Not Found, path=/libraryfree/alunos (truncated)...]
+2025-08-06T16:09:33.618-03:00 DEBUG 24532 --- [library-free] [o-auto-2-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-08-06T16:09:33.618-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 404 NOT_FOUND
+2025-08-06T16:09:33.619-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.domain.Aluno]
+2025-08-06T16:09:33.623-03:00  INFO 24532 --- [library-free] [           main] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-06T16:09:33.624-03:00  INFO 24532 --- [library-free] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-06T16:09:33.628-03:00  INFO 24532 --- [library-free] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-06T16:09:33.629-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-08-06T16:09:33.631-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnBadRequestWhenUpdatingAlunoWithDuplicateCpf" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.548">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.3)
+
+2025-08-06T16:09:33.661-03:00  INFO 24532 --- [library-free] [           main] b.c.l.l.i.AlunoIntegrationTests          : Starting AlunoIntegrationTests using Java 24.0.1 with PID 24532 (started by Joao in /home/Joao/Documentos/PI/Minha-Biblioteca/backend)
+2025-08-06T16:09:33.661-03:00  INFO 24532 --- [library-free] [           main] b.c.l.l.i.AlunoIntegrationTests          : The following 1 profile is active: "test"
+2025-08-06T16:09:33.837-03:00  INFO 24532 --- [library-free] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-06T16:09:33.849-03:00  INFO 24532 --- [library-free] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 4 JPA repository interfaces.
+2025-08-06T16:09:33.925-03:00  INFO 24532 --- [library-free] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-06T16:09:33.926-03:00  INFO 24532 --- [library-free] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-06T16:09:33.926-03:00  INFO 24532 --- [library-free] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-08-06T16:09:33.945-03:00  INFO 24532 --- [library-free] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-06T16:09:33.945-03:00  INFO 24532 --- [library-free] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 282 ms
+2025-08-06T16:09:33.974-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-08-06T16:09:33.979-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:testdb user=SA
+2025-08-06T16:09:33.979-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-08-06T16:09:34.004-03:00  INFO 24532 --- [library-free] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-06T16:09:34.006-03:00  INFO 24532 --- [library-free] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-06T16:09:34.014-03:00  INFO 24532 --- [library-free] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-06T16:09:34.015-03:00  WARN 24532 --- [library-free] [           main] org.hibernate.dialect.Dialect            : HHH000511: The 2.3.232 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-08-06T16:09:34.016-03:00  WARN 24532 --- [library-free] [           main] org.hibernate.orm.deprecation            : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-06T16:09:34.016-03:00  INFO 24532 --- [library-free] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-06T16:09:34.069-03:00  INFO 24532 --- [library-free] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-06T16:09:34.069-03:00  INFO 24532 --- [library-free] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-06T16:09:34.112-03:00  INFO 24532 --- [library-free] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-08-06T16:09:34.129-03:00  WARN 24532 --- [library-free] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-06T16:09:34.163-03:00 DEBUG 24532 --- [library-free] [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 21 mappings in 'requestMappingHandlerMapping'
+2025-08-06T16:09:34.173-03:00 DEBUG 24532 --- [library-free] [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-08-06T16:09:34.182-03:00 DEBUG 24532 --- [library-free] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-06T16:09:34.194-03:00 DEBUG 24532 --- [library-free] [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-08-06T16:09:34.211-03:00 DEBUG 24532 --- [library-free] [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-08-06T16:09:34.244-03:00  INFO 24532 --- [library-free] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 38839 (http) with context path '/'
+2025-08-06T16:09:34.247-03:00  INFO 24532 --- [library-free] [           main] b.c.l.l.i.AlunoIntegrationTests          : Started AlunoIntegrationTests in 0.611 seconds (process running for 13.312)
+2025-08-06T16:09:34.253-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:34.256-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:34.260-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:34.270-03:00  INFO 24532 --- [library-free] [o-auto-3-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-06T16:09:34.270-03:00  INFO 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-06T16:09:34.270-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-08-06T16:09:34.271-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-08-06T16:09:34.271-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-08-06T16:09:34.272-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@415b83fa
+2025-08-06T16:09:34.272-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@155ae856
+2025-08-06T16:09:34.273-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-06T16:09:34.273-03:00  INFO 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-08-06T16:09:34.274-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:34.274-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:34.275-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:34.275-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:34.275-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:34.280-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:34.759-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:34.761-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:34.762-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:34.762-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:34.763-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:34.764-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:34.765-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:38839/libraryfree/alunos/2
+2025-08-06T16:09:34.765-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:34.766-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [Aluno(id=null, nome=Marcos Vinicius, matricula=20240005, cpf=123.456.789-00, ativo=true, emprestimos=[])] as "application/json"
+2025-08-06T16:09:34.768-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Securing PUT /libraryfree/alunos/2
+2025-08-06T16:09:34.769-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@3e60a79a, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:34.769-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Secured PUT /libraryfree/alunos/2
+2025-08-06T16:09:34.769-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : PUT "/libraryfree/alunos/2", parameters={}
+2025-08-06T16:09:34.769-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#editAluno(Long, Aluno)
+2025-08-06T16:09:34.773-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Aluno(id=null, nome=Marcos Vinicius, matricula=20240005, cpf=123.456.789-00, ativo=true, emprestimos (truncated)...]
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.matricula=?
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.cpf=?
+2025-08-06T16:09:34.782-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 400 BAD_REQUEST "CPF já está em uso por outro aluno."]
+2025-08-06T16:09:34.783-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-08-06T16:09:34.784-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Securing PUT /error
+2025-08-06T16:09:34.784-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@3e60a79a, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:34.784-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Secured PUT /error
+2025-08-06T16:09:34.784-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for PUT "/error", parameters={}
+2025-08-06T16:09:34.784-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-06T16:09:34.788-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:34.789-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Aug 06 16:09:34 GMT-03:00 2025, status=400, error=Bad Request, path=/libraryfree/alun (truncated)...]
+2025-08-06T16:09:34.791-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2025-08-06T16:09:34.792-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnNotFoundWhenUpdatingNonExistingAluno" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.377">
+    <system-out><![CDATA[2025-08-06T16:09:34.806-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:34.806-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:34.807-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:34.815-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:34.816-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:34.816-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:34.816-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:34.816-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:34.819-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:35.154-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:35.155-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:35.155-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:35.156-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:35.157-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:35.157-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:35.157-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:38839/libraryfree/alunos/1000
+2025-08-06T16:09:35.158-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:35.158-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [Aluno(id=null, nome=Marcos Vinicius, matricula=20240005, cpf=567.890.123-44, ativo=true, emprestimos=[])] as "application/json"
+2025-08-06T16:09:35.159-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.security.web.FilterChainProxy        : Securing PUT /libraryfree/alunos/1000
+2025-08-06T16:09:35.160-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@fd19613, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:35.160-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.security.web.FilterChainProxy        : Secured PUT /libraryfree/alunos/1000
+2025-08-06T16:09:35.160-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : PUT "/libraryfree/alunos/1000", parameters={}
+2025-08-06T16:09:35.160-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#editAluno(Long, Aluno)
+2025-08-06T16:09:35.161-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Aluno(id=null, nome=Marcos Vinicius, matricula=20240005, cpf=567.890.123-44, ativo=true, emprestimos (truncated)...]
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+2025-08-06T16:09:35.163-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 404 NOT_FOUND "Aluno não encontrado."]
+2025-08-06T16:09:35.164-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-08-06T16:09:35.164-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.security.web.FilterChainProxy        : Securing PUT /error
+2025-08-06T16:09:35.165-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@fd19613, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:35.165-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.security.web.FilterChainProxy        : Secured PUT /error
+2025-08-06T16:09:35.165-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for PUT "/error", parameters={}
+2025-08-06T16:09:35.165-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-06T16:09:35.167-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:35.167-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Aug 06 16:09:35 GMT-03:00 2025, status=404, error=Not Found, path=/libraryfree/alunos (truncated)...]
+2025-08-06T16:09:35.169-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-08-06T16:09:35.169-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 404 NOT_FOUND
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnNotFoundWhenMatriculaDoesNotExist" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.368">
+    <system-out><![CDATA[2025-08-06T16:09:35.180-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:35.180-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:35.180-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:35.183-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:35.183-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:35.183-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:35.184-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:35.184-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:35.185-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:35.514-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:35.515-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:35.515-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:35.516-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:35.517-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:35.517-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:35.517-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:38839/libraryfree/alunos/matricula/1000000
+2025-08-06T16:09:35.517-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[text/plain, application/json, application/*+json, */*]
+2025-08-06T16:09:35.519-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos/matricula/1000000
+2025-08-06T16:09:35.519-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@569d888c, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:35.519-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /libraryfree/alunos/matricula/1000000
+2025-08-06T16:09:35.520-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/libraryfree/alunos/matricula/1000000", parameters={}
+2025-08-06T16:09:35.520-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#findByMatricula(String)
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.matricula=?
+2025-08-06T16:09:35.523-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 404 NOT_FOUND "Aluno não encontrado."]
+2025-08-06T16:09:35.523-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-08-06T16:09:35.537-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-08-06T16:09:35.537-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@569d888c, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:35.538-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /error
+2025-08-06T16:09:35.538-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-08-06T16:09:35.538-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-06T16:09:35.539-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [text/plain, application/json, application/*+json, */*] and supported [application/json, application/*+json]
+2025-08-06T16:09:35.539-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Aug 06 16:09:35 GMT-03:00 2025, status=404, error=Not Found, path=/libraryfree/alunos (truncated)...]
+2025-08-06T16:09:35.540-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-08-06T16:09:35.541-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 404 NOT_FOUND
+2025-08-06T16:09:35.542-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [java.lang.String] as "application/json"
+{"timestamp":"2025-08-06T19:09:35.539+00:00","status":404,"error":"Not Found","path":"/libraryfree/alunos/matricula/1000000"}
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnAlunoWhenIdExists" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.388">
+    <system-out><![CDATA[2025-08-06T16:09:35.549-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:35.550-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:35.550-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:35.557-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:35.557-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:35.558-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:35.558-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:35.558-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:35.560-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:35.901-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:35.902-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:35.902-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:35.904-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:35.904-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:35.904-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:35.905-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:38839/libraryfree/alunos/1
+2025-08-06T16:09:35.909-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:35.911-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos/1
+2025-08-06T16:09:35.912-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@3782695e, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:35.912-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /libraryfree/alunos/1
+2025-08-06T16:09:35.912-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/libraryfree/alunos/1", parameters={}
+2025-08-06T16:09:35.912-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#findById(Long)
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+2025-08-06T16:09:35.916-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+2025-08-06T16:09:35.918-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Aluno(id=1, nome=João da Silva, matricula=20230001, cpf=123.456.789-00, ativo=true, emprestimos=[br. (truncated)...]
+2025-08-06T16:09:35.922-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:35.922-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:35.922-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.domain.Aluno]
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnBadRequestWhenMatriculaAlreadyExists" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.349">
+    <system-out><![CDATA[2025-08-06T16:09:35.938-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:35.938-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:35.939-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:35.942-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:35.942-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:35.942-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:35.942-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:35.942-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:35.943-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:36.266-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:36.267-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:36.267-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:36.268-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:36.268-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:36.269-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:36.270-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/alunos
+2025-08-06T16:09:36.270-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:36.270-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [Aluno(id=null, nome=Novo aluno, matricula=20230001, cpf=888.999.000-11, ativo=true, emprestimos=[])] as "application/json"
+2025-08-06T16:09:36.272-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/alunos
+2025-08-06T16:09:36.273-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@4211d25d, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:36.273-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/alunos
+2025-08-06T16:09:36.273-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/alunos", parameters={}
+2025-08-06T16:09:36.273-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#createAluno(Aluno, UriComponentsBuilder)
+2025-08-06T16:09:36.276-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Aluno(id=null, nome=Novo aluno, matricula=20230001, cpf=888.999.000-11, ativo=true, emprestimos=[])]
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.matricula=?
+2025-08-06T16:09:36.279-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 400 BAD_REQUEST "Matrícula já existente."]
+2025-08-06T16:09:36.279-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-08-06T16:09:36.280-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /error
+2025-08-06T16:09:36.280-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@4211d25d, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:36.280-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.security.web.FilterChainProxy        : Secured POST /error
+2025-08-06T16:09:36.281-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2025-08-06T16:09:36.281-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-06T16:09:36.281-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:36.282-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Aug 06 16:09:36 GMT-03:00 2025, status=400, error=Bad Request, path=/libraryfree/alun (truncated)...]
+2025-08-06T16:09:36.282-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2025-08-06T16:09:36.283-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnBadRequestWhenCpfAlreadyExists" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.327">
+    <system-out><![CDATA[2025-08-06T16:09:36.288-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:36.288-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:36.289-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:36.292-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:36.293-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:36.293-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:36.293-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:36.293-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:36.294-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:36.596-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:36.597-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:36.597-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:36.598-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:36.598-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:36.599-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:36.599-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/alunos
+2025-08-06T16:09:36.600-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:36.600-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [Aluno(id=null, nome=Novo aluno, matricula=20240006, cpf=123.456.789-00, ativo=true, emprestimos=[])] as "application/json"
+2025-08-06T16:09:36.602-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/alunos
+2025-08-06T16:09:36.603-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@527cf088, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:36.603-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/alunos
+2025-08-06T16:09:36.603-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/alunos", parameters={}
+2025-08-06T16:09:36.603-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#createAluno(Aluno, UriComponentsBuilder)
+2025-08-06T16:09:36.604-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Aluno(id=null, nome=Novo aluno, matricula=20240006, cpf=123.456.789-00, ativo=true, emprestimos=[])]
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.matricula=?
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.cpf=?
+2025-08-06T16:09:36.607-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 400 BAD_REQUEST "CPF já existente."]
+2025-08-06T16:09:36.608-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-08-06T16:09:36.608-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /error
+2025-08-06T16:09:36.608-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@527cf088, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:36.609-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /error
+2025-08-06T16:09:36.609-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2025-08-06T16:09:36.609-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-06T16:09:36.609-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:36.609-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Aug 06 16:09:36 GMT-03:00 2025, status=400, error=Bad Request, path=/libraryfree/alun (truncated)...]
+2025-08-06T16:09:36.610-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2025-08-06T16:09:36.611-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnAlunoWhenMatriculaExists" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.327">
+    <system-out><![CDATA[2025-08-06T16:09:36.618-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:36.618-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:36.620-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:36.623-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:36.624-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:36.624-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:36.624-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:36.624-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:36.625-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:36.928-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:36.928-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:36.928-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:36.929-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:36.930-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:36.930-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:36.930-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:38839/libraryfree/alunos/matricula/20230001
+2025-08-06T16:09:36.931-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:36.932-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos/matricula/20230001
+2025-08-06T16:09:36.932-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@402b63a2, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:36.932-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /libraryfree/alunos/matricula/20230001
+2025-08-06T16:09:36.933-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/libraryfree/alunos/matricula/20230001", parameters={}
+2025-08-06T16:09:36.933-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#findByMatricula(String)
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.matricula=?
+2025-08-06T16:09:36.936-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+2025-08-06T16:09:36.938-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Aluno(id=1, nome=João da Silva, matricula=20230001, cpf=123.456.789-00, ativo=true, emprestimos=[br. (truncated)...]
+2025-08-06T16:09:36.938-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:36.939-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:36.939-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.domain.Aluno]
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnNotFoundWhenIdDoesNotExist" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.326">
+    <system-out><![CDATA[2025-08-06T16:09:36.944-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:36.944-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:36.944-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:36.946-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:36.946-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:36.946-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:36.946-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:36.947-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:36.947-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:37.255-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:37.255-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:37.256-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:37.257-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:37.257-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:37.257-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:37.258-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:38839/libraryfree/alunos/1000000
+2025-08-06T16:09:37.258-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:37.260-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos/1000000
+2025-08-06T16:09:37.261-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@41efa939, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:37.261-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /libraryfree/alunos/1000000
+2025-08-06T16:09:37.261-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/libraryfree/alunos/1000000", parameters={}
+2025-08-06T16:09:37.261-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#findById(Long)
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+2025-08-06T16:09:37.263-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 404 NOT_FOUND "Aluno não encontrado."]
+2025-08-06T16:09:37.263-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-08-06T16:09:37.263-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-08-06T16:09:37.264-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@41efa939, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:37.264-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /error
+2025-08-06T16:09:37.264-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-08-06T16:09:37.264-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-06T16:09:37.264-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:37.265-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Aug 06 16:09:37 GMT-03:00 2025, status=404, error=Not Found, path=/libraryfree/alunos (truncated)...]
+2025-08-06T16:09:37.265-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-08-06T16:09:37.266-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 404 NOT_FOUND
+2025-08-06T16:09:37.266-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.domain.Aluno]
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnForbiddenWhenGettingAlunosWithoutAuth" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.012">
+    <system-out><![CDATA[2025-08-06T16:09:37.272-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:38839/libraryfree/alunos
+2025-08-06T16:09:37.273-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:37.274-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos
+2025-08-06T16:09:37.275-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:37.276-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2025-08-06T16:09:37.276-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-08-06T16:09:37.276-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:37.276-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-7] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2025-08-06T16:09:37.277-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 403 FORBIDDEN
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnAllAlunosWhenAuthenticated" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.337">
+    <system-out><![CDATA[2025-08-06T16:09:37.283-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:37.284-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:37.284-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:37.288-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:37.289-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:37.289-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:37.290-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:37.290-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:37.291-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:37.604-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:37.605-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:37.605-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:37.605-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:37.606-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:37.606-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:37.607-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:38839/libraryfree/alunos
+2025-08-06T16:09:37.607-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:37.608-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos
+2025-08-06T16:09:37.609-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@61816bdb, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:37.609-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /libraryfree/alunos
+2025-08-06T16:09:37.609-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/libraryfree/alunos", parameters={}
+2025-08-06T16:09:37.609-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#findAll()
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0
+2025-08-06T16:09:37.613-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+2025-08-06T16:09:37.615-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Aluno(id=1, nome=João da Silva, matricula=20230001, cpf=123.456.789-00, ativo=true, emprestimos=[br (truncated)...]
+2025-08-06T16:09:37.616-03:00 DEBUG 24532 --- [library-free] [-auto-3-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:37.616-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:37.617-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [java.lang.Iterable<br.com.libraryfree.library_free.domain.Aluno>]
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnNotFoundWhenDeletingNonExistingAluno" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.327">
+    <system-out><![CDATA[2025-08-06T16:09:37.621-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:37.621-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:37.621-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:37.625-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:37.625-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:37.625-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:37.625-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:37.626-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:37.626-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:37.932-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:37.933-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:37.933-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:37.934-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:37.934-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:37.934-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:37.935-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP DELETE http://localhost:38839/libraryfree/alunos/1000
+2025-08-06T16:09:37.935-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:37.937-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.security.web.FilterChainProxy        : Securing DELETE /libraryfree/alunos/1000
+2025-08-06T16:09:37.937-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@374aba4f, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:37.937-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.security.web.FilterChainProxy        : Secured DELETE /libraryfree/alunos/1000
+2025-08-06T16:09:37.937-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : DELETE "/libraryfree/alunos/1000", parameters={}
+2025-08-06T16:09:37.938-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#deleteAluno(Long)
+Hibernate: select count(*) from aluno a1_0 where a1_0.id=?
+2025-08-06T16:09:37.941-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 404 NOT_FOUND "Aluno não encontrado."]
+2025-08-06T16:09:37.941-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-08-06T16:09:37.942-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.security.web.FilterChainProxy        : Securing DELETE /error
+2025-08-06T16:09:37.942-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@374aba4f, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:37.942-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.security.web.FilterChainProxy        : Secured DELETE /error
+2025-08-06T16:09:37.942-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for DELETE "/error", parameters={}
+2025-08-06T16:09:37.942-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-06T16:09:37.942-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:37.943-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Aug 06 16:09:37 GMT-03:00 2025, status=404, error=Not Found, path=/libraryfree/alunos (truncated)...]
+2025-08-06T16:09:37.943-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-08-06T16:09:37.944-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 404 NOT_FOUND
+]]></system-out>
+  </testcase>
+  <testcase name="shouldReturnBadRequestWhenUpdatingAlunoWithDuplicateMatricula" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.333">
+    <system-out><![CDATA[2025-08-06T16:09:37.948-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:37.948-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:37.948-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:37.952-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:37.952-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:37.952-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:37.952-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:37.953-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:37.953-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:38.263-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:38.263-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:38.264-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:38.264-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:38.265-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:38.265-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:38.266-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:38839/libraryfree/alunos/2
+2025-08-06T16:09:38.266-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:38.266-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [Aluno(id=null, nome=Marcos Vinicius, matricula=20230001, cpf=567.890.123-44, ativo=true, emprestimos=[])] as "application/json"
+2025-08-06T16:09:38.268-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.security.web.FilterChainProxy        : Securing PUT /libraryfree/alunos/2
+2025-08-06T16:09:38.268-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@61070c7, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:38.268-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.security.web.FilterChainProxy        : Secured PUT /libraryfree/alunos/2
+2025-08-06T16:09:38.268-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : PUT "/libraryfree/alunos/2", parameters={}
+2025-08-06T16:09:38.268-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#editAluno(Long, Aluno)
+2025-08-06T16:09:38.269-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Aluno(id=null, nome=Marcos Vinicius, matricula=20230001, cpf=567.890.123-44, ativo=true, emprestimos (truncated)...]
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.matricula=?
+2025-08-06T16:09:38.273-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 400 BAD_REQUEST "Matrícula já está em uso por outro aluno."]
+2025-08-06T16:09:38.274-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-08-06T16:09:38.274-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.security.web.FilterChainProxy        : Securing PUT /error
+2025-08-06T16:09:38.275-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@61070c7, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:38.275-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.security.web.FilterChainProxy        : Secured PUT /error
+2025-08-06T16:09:38.275-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for PUT "/error", parameters={}
+2025-08-06T16:09:38.275-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-06T16:09:38.275-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:38.276-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Aug 06 16:09:38 GMT-03:00 2025, status=400, error=Bad Request, path=/libraryfree/alun (truncated)...]
+2025-08-06T16:09:38.276-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2025-08-06T16:09:38.277-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+]]></system-out>
+  </testcase>
+  <testcase name="shouldUpdateAlunoWhenIdExistsAndMatriculaAndCpfAreUnique" classname="br.com.libraryfree.library_free.integration.AlunoIntegrationTests" time="0.369">
+    <system-out><![CDATA[2025-08-06T16:09:38.282-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:38839/libraryfree/auth/login
+2025-08-06T16:09:38.282-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:38.282-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [LoginDTO[email=admin@libraryfree.com, senha=senha123]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2025-08-06T16:09:38.285-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /libraryfree/auth/login
+2025-08-06T16:09:38.285-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-06T16:09:38.285-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /libraryfree/auth/login
+2025-08-06T16:09:38.285-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/libraryfree/auth/login", parameters={}
+2025-08-06T16:09:38.286-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.BibliotecarioController#login(LoginDTO, HttpServletRequest)
+2025-08-06T16:09:38.286-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginDTO[email=admin@libraryfree.com, senha=senha123]]
+Hibernate: select b1_0.id,b1_0.email,b1_0.nome,b1_0.senha from bibliotecario b1_0 where b1_0.email=?
+2025-08-06T16:09:38.611-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-06T16:09:38.612-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:38.612-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [BibliotecarioDTO[id=1, nome=Felipe Ferreira, email=admin@libraryfree.com]]
+2025-08-06T16:09:38.613-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:38.613-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:38.613-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.DTO.BibliotecarioDTO]
+2025-08-06T16:09:38.614-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:38839/libraryfree/alunos/1
+2025-08-06T16:09:38.614-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:38.615-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Writing [Aluno(id=null, nome=Marcos Vinicius, matricula=20240005, cpf=567.890.123-44, ativo=true, emprestimos=[])] as "application/json"
+2025-08-06T16:09:38.616-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.security.web.FilterChainProxy        : Securing PUT /libraryfree/alunos/1
+2025-08-06T16:09:38.616-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@42ff5aed, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:38.616-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.security.web.FilterChainProxy        : Secured PUT /libraryfree/alunos/1
+2025-08-06T16:09:38.616-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.web.servlet.DispatcherServlet        : PUT "/libraryfree/alunos/1", parameters={}
+2025-08-06T16:09:38.617-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#editAluno(Long, Aluno)
+2025-08-06T16:09:38.618-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Aluno(id=null, nome=Marcos Vinicius, matricula=20240005, cpf=567.890.123-44, ativo=true, emprestimos (truncated)...]
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.matricula=?
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.cpf=?
+Hibernate: update aluno set ativo=?,cpf=?,matricula=?,nome=? where id=?
+2025-08-06T16:09:38.632-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-08-06T16:09:38.632-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2025-08-06T16:09:38.632-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 204 NO_CONTENT
+2025-08-06T16:09:38.633-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 204 NO_CONTENT
+2025-08-06T16:09:38.633-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:38839/libraryfree/alunos/1
+2025-08-06T16:09:38.633-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2025-08-06T16:09:38.635-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /libraryfree/alunos/1
+2025-08-06T16:09:38.635-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=br.com.libraryfree.library_free.security.UserDetailsImpl@42ff5aed, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[]]]
+2025-08-06T16:09:38.635-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /libraryfree/alunos/1
+2025-08-06T16:09:38.635-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/libraryfree/alunos/1", parameters={}
+2025-08-06T16:09:38.635-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to br.com.libraryfree.library_free.controller.AlunoController#findById(Long)
+Hibernate: select a1_0.id,a1_0.ativo,a1_0.cpf,a1_0.matricula,a1_0.nome from aluno a1_0 where a1_0.id=?
+2025-08-06T16:09:38.637-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+Hibernate: select e1_0.aluno_id,e1_0.id,e1_0.ativo,e1_0.data_devolucao,e1_0.data_emprestimo,e1_0.livro_id,l1_0.id,l1_0.autor,l1_0.edicao,l1_0.editora,l1_0.emprestado,l1_0.genero,l1_0.isbn,l1_0.publicacao,l1_0.titulo,e1_0.prazo_devolucao from aluno_livro e1_0 left join livro l1_0 on l1_0.id=e1_0.livro_id where e1_0.aluno_id=?
+2025-08-06T16:09:38.638-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Aluno(id=1, nome=Marcos Vinicius, matricula=20240005, cpf=567.890.123-44, ativo=true, emprestimos=[b (truncated)...]
+2025-08-06T16:09:38.639-03:00 DEBUG 24532 --- [library-free] [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-06T16:09:38.639-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2025-08-06T16:09:38.639-03:00 DEBUG 24532 --- [library-free] [           main] o.s.web.client.RestTemplate              : Reading to [br.com.libraryfree.library_free.domain.Aluno]
+2025-08-06T16:09:38.642-03:00  INFO 24532 --- [library-free] [           main] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-06T16:09:38.642-03:00  INFO 24532 --- [library-free] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-06T16:09:38.644-03:00  INFO 24532 --- [library-free] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-06T16:09:38.645-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2025-08-06T16:09:38.646-03:00  INFO 24532 --- [library-free] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+]]></system-out>
+  </testcase>
+</testsuite>
