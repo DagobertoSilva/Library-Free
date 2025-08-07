@@ -1,4 +1,4 @@
-# Minha Biblioteca
+# Library Free
 
 Este projeto, desenvolvido para a disciplina de Projeto Integrador I, do curso de Ciência da Computação da Universidade Federal do Ceará - Campus Crateús, tem como objetivo aplicar os conhecimentos adquiridos ao longo da graduação na construção de uma solução real e com impacto social.
 
@@ -69,9 +69,10 @@ Será desenvolvido um sistema web open-source para o gerenciamento de acervos bi
 
 ### Tecnologias escolhidas:
 - Versionamento: Git e GitHub.
-- Front-end: HTML, CSS e JavaScript.
-- Back-end: Node.js com Express.
-- Banco de dados: Dados mockados em memória.
+- Front-end: HTML, CSS, JavaScript e Bootstrap(framework para CSS).
+- Back-end: Java com Spring Boot.
+- Gerenciador de dependências: Maven
+- Banco de dados: MariaDB e H2 (banco de dados em memória).
 
 ## Documentação
 [Documentação Técnica](https://github.com/DagobertoSilva/Minha-Biblioteca/wiki#2-an%C3%A1lise-de-requisitos)
