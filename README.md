@@ -8,7 +8,7 @@ Página de Login
 
 <img width="865" alt="Screenshot 2025-06-21 at 18 52 53" src="https://github.com/user-attachments/assets/1a34f164-8dd5-4ee5-b68b-b94a9d1082a4" />
 
-Página Hoje
+Página Home
 
 <img width="865" alt="Screenshot 2025-06-21 at 18 54 04" src="https://github.com/user-attachments/assets/2ed1cdd4-2e63-438f-ac9c-110c3e45d49d" />
 
