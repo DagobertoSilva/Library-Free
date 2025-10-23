@@ -21,59 +21,34 @@ Vide as demais telas no link
 https://www.figma.com/design/MkpSO0QuVsZNEsTGx0SRUc/LibraryFree?t=3hvPOIto5kiEzrHs-0
 ```
 
-## Membros da equipe
-### Desenvolvedores:
-- Francisco Dagoberto
-- Henryco Chaves
-- João Paulo Menezes
-- Kauã Soares
-- Matheus Sales
+## Utilizando a aplicação
 
-### Orientadores:
-- Aguiar Júnior
-- Prof. Patrick Alcântara
+### Pré-requisitos
+* Docker
 
-### Professor Responsável:
-- Me. Renato Furtado
+### Configuração
+1. Crie um novo diretório para o projeto.
+2. Baixe os arquivos docker-compose.yml e init.sql para este novo diretório.
+3. No mesmo diretório, crie um arquivo chamado .env.
+4. Preencha o arquivo .env com as seguintes variáveis, atribuindo seus próprios valores seguros:
+```bash
+DB_ROOT_PASSWORD=
+DB_USER_PASSWORD=
+```
 
-## Escopo
-Será desenvolvido um sistema web open-source para o gerenciamento de acervos bibliotecários, com foco em melhorar o controle, a organização e o acesso a materiais educacionais. O sistema será direcionado para instituições de ensino e beneficiará alunos, professores, bibliotecários e gestores escolares.
+### Executando a aplicação
+1. Abra um terminal no diretório raiz do projeto.
+2. Execute o seguinte comando para construir as imagens e iniciar os contêineres:
+```
+docker-compose up -d --build
+```
 
-### Escalabilidade:
-1. Entrega acadêmica: Entregar uma versão mínima e funcional do sistema para apresentação na disciplina de Projeto Integrador I.
-2. Implantação local: Adaptar e disponibilizar o sistema para uso real na EEEP Prof. Maria Altair Américo Sabói.
-3. Implantação regional: Estender o sistema para atender múltiplas instituições da CREDE 13.
-
-### Funcionalidades para a versão inicial:
-- Cadastro e gerenciamento de usuários.
-- Cadastro de materiais educacionais como livros, revistas e apostilas.
-- Busca simples para alunos e visitantes.
-- Busca avançada para bibliotecários e gestores escolares.
-- Controle de permissões quanto ao tipo de usuário.
-- Reserva, renovação e devolução de empréstimos
-- Aplicação de penalidade por atraso na devolução de materiais.
-
-### Funcionalidades para as versões futuras:
-- Geração de relatórios e estatísticas gerais.
-- Visualização de dados em dashboards e gráficos.
-- Exportação de dados em formatos como PDF e excel.
-- Envio de notificações automáticas para usuários.
-- Cadastro e gerenciamento de eventos da biblioteca.
-- Rotina de backup de dados.
-
-### Funcionalidades fora do escopo:
-- Multas financeiras e cobrança automática.
-- Integração com sistemas de pagamento online.
-- Uso de inteligência artificial para recomendações ou atendimento automático.
-- Suporte técnico integrado.
-
-### Tecnologias escolhidas:
-- Versionamento: Git e GitHub.
-- Front-end: HTML, CSS, JavaScript e Bootstrap(framework para CSS).
-- Back-end: Java com Spring Boot.
-- Gerenciador de dependências: Maven
-- Banco de dados: MariaDB e H2 (banco de dados em memória).
+### Parando a aplicação
+1. Para parar e remover os contêineres, execute o seguinte comando no diretório raiz do projeto:
+```
+docker-compose down
+```
 
 ## Documentação
-[Documentação Técnica](https://github.com/DagobertoSilva/Minha-Biblioteca/wiki#2-an%C3%A1lise-de-requisitos)
+[Documentação Técnica (PDF)](https://drive.google.com/file/d/11JwY8qXcqxmH8D-NBH5pFenq646Fr6po/view?usp=sharing)
 
