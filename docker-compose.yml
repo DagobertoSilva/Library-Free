@@ -14,6 +14,7 @@ services:
       - "3307:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   app:
     image: joaomnz/library-free-app:latest
@@ -27,7 +28,16 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/LibraryFree?tinyInt1isBit=false
       SPRING_DATASOURCE_USERNAME: joao
       SPRING_DATASOURCE_PASSWORD: ${DB_USER_PASSWORD}
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
-
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+      
+  frontend:
+    image: joaomnz/library-free-frontend:latest
+    container_name: libraryfree-frontend
+    restart: unless-stopped
+    ports:
+      - "5500:80"
+    depends_on:
+      - app
+      
 volumes:
   mariadb_data:
