@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: br.com.libraryfree.library_free.integration.EmprestimoIntegrationTests
--------------------------------------------------------------------------------
-Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.201 s -- in br.com.libraryfree.library_free.integration.EmprestimoIntegrationTests

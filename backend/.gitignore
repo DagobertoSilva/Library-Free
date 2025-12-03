@@ -1,13 +1,8 @@
-*.log
-*.log.*
-.env
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-docker-compose.yml
-Dockerfile
 
 ### STS ###
 .apt_generated
