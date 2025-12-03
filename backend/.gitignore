@@ -1,33 +1,82 @@
-HELP.md
+###########################
+# Maven / Java
+###########################
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+out/
+*.class
+*.log
+logs/
+*.tmp
+*.bak
+*.swp
 
-### STS ###
+###########################
+# Maven Wrapper
+###########################
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+###########################
+# IntelliJ IDEA
+###########################
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# IntelliJ caches and metadata
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/shelf/
+.idea/**/dictionaries
+.idea/**/libraries
+.idea/**/httpRequests/
+
+###########################
+# Eclipse / STS
+###########################
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
+###########################
+# NetBeans
+###########################
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+###########################
+# VS Code
+###########################
 .vscode/
+
+###########################
+# OS-specific
+###########################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+###########################
+# Environment / Sensitive
+###########################
+.env
+.env.*
+*.env
+application-local.properties
+application-local.yml
+
+###########################
+# Others
+###########################
+*.war
+*.jar
+*.ear
