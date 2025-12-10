@@ -6,10 +6,9 @@ import libraryfree.app.domain.Usuario;
 import libraryfree.app.dto.login.LoginRequest;
 import libraryfree.app.dto.login.LoginResponse;
 import libraryfree.app.dto.perfil.Perfil;
+import libraryfree.app.exception.CredenciaisInvalidasException;
 import libraryfree.app.repository.UsuarioRepository;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class AuthService {
@@ -23,10 +22,10 @@ public class AuthService {
 
     public LoginResponse login(LoginRequest request){
         Usuario usuario = usuarioRepository.findByEmail(request.email())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Email ou senha inválidos."));
+                .orElseThrow(() -> new CredenciaisInvalidasException("Credenciais inválidas."));
 
         if (!usuario.getSenha().equals(request.senha())) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Email ou senha inválidos.");
+            throw new CredenciaisInvalidasException("Credenciais inválidas.");
         }
 
         LoginStrategy strategy = loginFactory.getStrategy(usuario.getTipo());
