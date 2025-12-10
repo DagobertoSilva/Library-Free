@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Component
 public class LoginFactory {
-    private Map<TipoUsuario, LoginStrategy> strategies = new EnumMap<>(TipoUsuario.class);
+    private final Map<TipoUsuario, LoginStrategy> strategies = new EnumMap<>(TipoUsuario.class);
 
     public LoginFactory(List<LoginStrategy> strategyList) {
         strategyList.forEach(s -> strategies.put(s.getTipo(), s));

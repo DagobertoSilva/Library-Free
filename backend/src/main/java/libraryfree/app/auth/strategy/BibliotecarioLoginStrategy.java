@@ -11,7 +11,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Component
 public class BibliotecarioLoginStrategy implements LoginStrategy {
-    BibliotecarioRepository bibliotecarioRepository;
+    private final BibliotecarioRepository bibliotecarioRepository;
+
+    public BibliotecarioLoginStrategy(BibliotecarioRepository bibliotecarioRepository) {
+        this.bibliotecarioRepository = bibliotecarioRepository;
+    }
 
     @Override
     public Perfil procurarPerfil(Long usuarioId) {
