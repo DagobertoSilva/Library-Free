@@ -1,35 +1,34 @@
 package libraryfree.app.auth;
 
 import libraryfree.app.auth.strategy.LoginFactory;
-import libraryfree.app.auth.strategy.LoginStrategy;
 import libraryfree.app.domain.Usuario;
 import libraryfree.app.dto.login.LoginRequest;
 import libraryfree.app.dto.login.LoginResponse;
 import libraryfree.app.dto.perfil.Perfil;
-import libraryfree.app.exception.CredenciaisInvalidasException;
-import libraryfree.app.repository.UsuarioRepository;
+import libraryfree.app.security.UsuarioDetails;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
-    private final UsuarioRepository usuarioRepository;
     private final LoginFactory loginFactory;
+    private final AuthenticationManager authenticationManager;
 
-    public AuthService(UsuarioRepository usuarioRepository, LoginFactory loginFactory) {
-        this.usuarioRepository = usuarioRepository;
+    public AuthService(AuthenticationManager authenticationManager, LoginFactory loginFactory) {
+        this.authenticationManager = authenticationManager;
         this.loginFactory = loginFactory;
     }
 
     public LoginResponse login(LoginRequest request){
-        Usuario usuario = usuarioRepository.findByEmail(request.email())
-                .orElseThrow(() -> new CredenciaisInvalidasException("Credenciais inválidas."));
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(request.email(), request.senha());
+        Authentication authentication = authenticationManager.authenticate(authToken);
 
-        if (!usuario.getSenha().equals(request.senha())) {
-            throw new CredenciaisInvalidasException("Credenciais inválidas.");
-        }
+        Usuario usuario = ((UsuarioDetails) authentication.getPrincipal()).getUsuario();
 
-        LoginStrategy strategy = loginFactory.getStrategy(usuario.getTipo());
-        Perfil perfil = strategy.procurarPerfil(usuario.getId());
+        Perfil perfil = loginFactory.getStrategy(usuario.getTipo()).procurarPerfil(usuario.getId());
+
         return new LoginResponse(usuario.getTipo().name(), perfil);
     }
 }

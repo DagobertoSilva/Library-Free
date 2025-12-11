@@ -10,7 +10,6 @@ import libraryfree.app.repository.BibliotecarioRepository;
 import libraryfree.app.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class BibliotecarioService {
     private final UsuarioRepository usuarioRepository;
