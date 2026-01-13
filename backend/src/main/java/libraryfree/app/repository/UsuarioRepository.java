@@ -1,6 +1,6 @@
 package libraryfree.app.repository;
 
-import libraryfree.app.domain.Usuario;
+import libraryfree.app.domain.usuario.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

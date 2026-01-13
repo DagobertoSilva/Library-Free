@@ -1,24 +1,21 @@
-package libraryfree.app.domain;
+package libraryfree.app.domain.acervo;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "bibliotecario")
-@Getter
-@Setter
+@Table(name = "autor")
+@Getter @Setter
 @NoArgsConstructor
-public class Bibliotecario {
+@EqualsAndHashCode(of = "id")
+public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
     private String nome;
-
-    @OneToOne
-    @JoinColumn(name = "usuario_id", nullable = false, unique = true)
-    private Usuario usuario;
 }

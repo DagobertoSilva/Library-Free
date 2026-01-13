@@ -1,6 +1,6 @@
 package libraryfree.app.security;
 
-import libraryfree.app.domain.Usuario;
+import libraryfree.app.domain.usuario.Usuario;
 import libraryfree.app.repository.UsuarioRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

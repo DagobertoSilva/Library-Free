@@ -1,6 +1,6 @@
 package libraryfree.app.auth.strategy;
 
-import libraryfree.app.domain.Bibliotecario;
+import libraryfree.app.domain.usuario.Bibliotecario;
 import libraryfree.app.dto.perfil.BibliotecarioPerfil;
 import libraryfree.app.dto.perfil.Perfil;
 import libraryfree.app.enumerator.TipoUsuario;

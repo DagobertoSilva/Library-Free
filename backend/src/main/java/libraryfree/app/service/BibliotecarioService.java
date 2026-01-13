@@ -1,8 +1,8 @@
 package libraryfree.app.service;
 
 import jakarta.transaction.Transactional;
-import libraryfree.app.domain.Bibliotecario;
-import libraryfree.app.domain.Usuario;
+import libraryfree.app.domain.usuario.Bibliotecario;
+import libraryfree.app.domain.usuario.Usuario;
 import libraryfree.app.dto.bibliotecario.CreateBibliotecarioRequest;
 import libraryfree.app.enumerator.TipoUsuario;
 import libraryfree.app.repository.BibliotecarioRepository;

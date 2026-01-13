@@ -1,7 +1,8 @@
-package libraryfree.app.domain;
+package libraryfree.app.domain.usuario;
 
 import jakarta.persistence.*;
 import libraryfree.app.enumerator.TipoUsuario;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,9 +11,9 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "usuario")
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

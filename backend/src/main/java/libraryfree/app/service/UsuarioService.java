@@ -1,6 +1,6 @@
 package libraryfree.app.service;
 
-import libraryfree.app.domain.Usuario;
+import libraryfree.app.domain.usuario.Usuario;
 import libraryfree.app.enumerator.TipoUsuario;
 import libraryfree.app.exception.EmailJaCadastradoException;
 import libraryfree.app.repository.UsuarioRepository;

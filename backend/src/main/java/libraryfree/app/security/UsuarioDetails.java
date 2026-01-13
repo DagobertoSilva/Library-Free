@@ -1,6 +1,6 @@
 package libraryfree.app.security;
 
-import libraryfree.app.domain.Usuario;
+import libraryfree.app.domain.usuario.Usuario;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,7 +1,7 @@
 package libraryfree.app.auth;
 
 import libraryfree.app.auth.strategy.LoginFactory;
-import libraryfree.app.domain.Usuario;
+import libraryfree.app.domain.usuario.Usuario;
 import libraryfree.app.dto.login.LoginRequest;
 import libraryfree.app.dto.login.LoginResponse;
 import libraryfree.app.dto.perfil.Perfil;
