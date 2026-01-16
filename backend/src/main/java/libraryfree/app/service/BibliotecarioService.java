@@ -1,12 +1,12 @@
 package libraryfree.app.service;
 
-import jakarta.transaction.Transactional;
 import libraryfree.app.domain.usuario.Bibliotecario;
 import libraryfree.app.domain.usuario.Usuario;
 import libraryfree.app.dto.bibliotecario.CreateBibliotecarioRequest;
 import libraryfree.app.enumerator.TipoUsuario;
-import libraryfree.app.repository.BibliotecarioRepository;
+import libraryfree.app.repository.usuario.BibliotecarioRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BibliotecarioService {

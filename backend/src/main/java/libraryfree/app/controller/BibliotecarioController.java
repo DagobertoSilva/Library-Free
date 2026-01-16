@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/bibliotecarios")
 public class BibliotecarioController {
-    BibliotecarioService bibliotecarioService;
+    private final BibliotecarioService bibliotecarioService;
 
     public BibliotecarioController(BibliotecarioService bibliotecarioService) {
         this.bibliotecarioService = bibliotecarioService;

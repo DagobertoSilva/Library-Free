@@ -1,7 +1,7 @@
 package libraryfree.app.security;
 
 import libraryfree.app.domain.usuario.Usuario;
-import libraryfree.app.repository.UsuarioRepository;
+import libraryfree.app.repository.usuario.UsuarioRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

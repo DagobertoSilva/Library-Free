@@ -2,8 +2,8 @@ package libraryfree.app.service;
 
 import libraryfree.app.domain.usuario.Usuario;
 import libraryfree.app.enumerator.TipoUsuario;
-import libraryfree.app.exception.EmailJaCadastradoException;
-import libraryfree.app.repository.UsuarioRepository;
+import libraryfree.app.exception.ConflitoDeDadosException;
+import libraryfree.app.repository.usuario.UsuarioRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class UsuarioService {
 
     public Usuario create(String email, String senha, TipoUsuario tipo){
         if (usuarioRepository.existsByEmail(email)) {
-            throw new EmailJaCadastradoException("Este e-mail já está cadastrado.");
+            throw new ConflitoDeDadosException("Este e-mail já está cadastrado.");
         }
 
         Usuario usuario = new Usuario();

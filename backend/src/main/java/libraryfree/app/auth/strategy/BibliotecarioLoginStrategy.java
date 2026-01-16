@@ -5,7 +5,7 @@ import libraryfree.app.dto.perfil.BibliotecarioPerfil;
 import libraryfree.app.dto.perfil.Perfil;
 import libraryfree.app.enumerator.TipoUsuario;
 import libraryfree.app.exception.RecursoNaoEncontradoException;
-import libraryfree.app.repository.BibliotecarioRepository;
+import libraryfree.app.repository.usuario.BibliotecarioRepository;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -52,8 +52,8 @@ public class RestExceptionHandler {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 
-    @ExceptionHandler(EmailJaCadastradoException.class)
-    public ResponseEntity<ErroResponse> handleEmailJaCadastrado(EmailJaCadastradoException exception,
+    @ExceptionHandler(ConflitoDeDadosException.class)
+    public ResponseEntity<ErroResponse> handleConflitoDeDados(ConflitoDeDadosException exception,
                                                                 HttpServletRequest request){
         ErroResponse response = new ErroResponse(
                 Instant.now(),
