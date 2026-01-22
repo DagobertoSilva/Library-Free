@@ -3,6 +3,7 @@ package libraryfree.app.controller;
 import jakarta.validation.Valid;
 import libraryfree.app.dto.livro.CreateLivroRequest;
 import libraryfree.app.dto.livro.LivroResponse;
+import libraryfree.app.dto.livro.UpdateLivroRequest;
 import libraryfree.app.service.LivroService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -63,5 +64,12 @@ public class LivroController {
     @PreAuthorize("hasAnyRole('BIBLIOTECARIO', 'ALUNO')")
     public ResponseEntity<Page<LivroResponse>> buscarPorGenero(@RequestParam String termo, @PageableDefault(size = 8, sort = "titulo") Pageable pageable) {
         return ResponseEntity.ok(livroService.buscarPorGenero(termo, pageable));
+    }
+
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('BIBLIOTECARIO')")
+    public ResponseEntity<LivroResponse> update(@PathVariable Long id, @RequestBody @Valid UpdateLivroRequest request) {
+        LivroResponse response = livroService.update(id, request);
+        return ResponseEntity.ok(response);
     }
 }

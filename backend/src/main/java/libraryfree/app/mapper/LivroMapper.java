@@ -6,10 +6,8 @@ import libraryfree.app.domain.acervo.Genero;
 import libraryfree.app.domain.acervo.Livro;
 import libraryfree.app.dto.livro.CreateLivroRequest;
 import libraryfree.app.dto.livro.LivroResponse;
-import org.mapstruct.AfterMapping;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
+import libraryfree.app.dto.livro.UpdateLivroRequest;
+import org.mapstruct.*;
 
 import java.util.Set;
 
@@ -25,4 +23,13 @@ public interface LivroMapper {
     }
 
     LivroResponse toResponse(Livro livro);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "quantidadeTotal", ignore = true)
+    @Mapping(target = "quantidadeDisponivel", ignore = true)
+    @Mapping(target = "editora", ignore = true)
+    @Mapping(target = "autores", ignore = true)
+    @Mapping(target = "generos", ignore = true)
+    void updateEntityFromDto(UpdateLivroRequest request, @MappingTarget Livro livro);
 }
