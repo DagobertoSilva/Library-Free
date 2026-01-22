@@ -13,6 +13,9 @@ import libraryfree.app.repository.acervo.AutorRepository;
 import libraryfree.app.repository.acervo.EditoraRepository;
 import libraryfree.app.repository.acervo.GeneroRepository;
 import libraryfree.app.repository.acervo.LivroRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +43,7 @@ public class LivroService {
     }
 
     @Transactional
+    @PreAuthorize("hasRole('BIBLIOTECARIO')")
     public LivroResponse create(CreateLivroRequest request) {
         if (request.isbn() != null && livroRepository.existsByIsbn(request.isbn())) {
             throw new ConflitoDeDadosException("ISBN já cadastrado.");
@@ -73,5 +77,27 @@ public class LivroService {
         Livro livro = livroMapper.toEntity(request, editora, autores, generos);
         Livro livroSalvo = livroRepository.save(livro);
         return livroMapper.toResponse(livroSalvo);
+    }
+
+    public LivroResponse buscarPorId(Long id) {
+        return livroRepository.findById(id)
+                .map(livroMapper::toResponse)
+                .orElseThrow(() -> new RecursoNaoEncontradoException("Livro não encontrado."));
+    }
+
+    public Page<LivroResponse> findAll(Pageable pageable) {
+        return livroRepository.findAll(pageable).map(livroMapper::toResponse);
+    }
+
+    public Page<LivroResponse> buscarPorTitulo(String titulo, Pageable pageable) {
+        return livroRepository.findByTituloContainingIgnoreCase(titulo, pageable).map(livroMapper::toResponse);
+    }
+
+    public Page<LivroResponse> buscarPorAutor(String nomeAutor, Pageable pageable) {
+        return livroRepository.findByAutoresNomeContainingIgnoreCase(nomeAutor, pageable).map(livroMapper::toResponse);
+    }
+
+    public Page<LivroResponse> buscarPorGenero(String nomeGenero, Pageable pageable) {
+        return livroRepository.findByGenerosNomeContainingIgnoreCase(nomeGenero, pageable).map(livroMapper::toResponse);
     }
 }

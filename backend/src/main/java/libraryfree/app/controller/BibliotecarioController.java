@@ -5,6 +5,7 @@ import libraryfree.app.dto.bibliotecario.BibliotecarioResponse;
 import libraryfree.app.dto.bibliotecario.CreateBibliotecarioRequest;
 import libraryfree.app.service.BibliotecarioService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ public class BibliotecarioController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('BIBLIOTECARIO')")
     public ResponseEntity<BibliotecarioResponse> create(@Valid @RequestBody CreateBibliotecarioRequest request){
         BibliotecarioResponse response = bibliotecarioService.create(request);
 
