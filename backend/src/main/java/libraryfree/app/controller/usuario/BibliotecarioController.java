@@ -1,9 +1,9 @@
-package libraryfree.app.controller;
+package libraryfree.app.controller.usuario;
 
 import jakarta.validation.Valid;
 import libraryfree.app.dto.bibliotecario.BibliotecarioResponse;
 import libraryfree.app.dto.bibliotecario.CreateBibliotecarioRequest;
-import libraryfree.app.service.BibliotecarioService;
+import libraryfree.app.service.usuario.BibliotecarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;

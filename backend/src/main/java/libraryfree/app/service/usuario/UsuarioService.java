@@ -1,4 +1,4 @@
-package libraryfree.app.service;
+package libraryfree.app.service.usuario;
 
 import libraryfree.app.domain.usuario.Usuario;
 import libraryfree.app.enumerator.TipoUsuario;

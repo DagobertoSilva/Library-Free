@@ -1,10 +1,10 @@
-package libraryfree.app.controller;
+package libraryfree.app.controller.acervo;
 
 import jakarta.validation.Valid;
 import libraryfree.app.dto.livro.CreateLivroRequest;
 import libraryfree.app.dto.livro.LivroResponse;
 import libraryfree.app.dto.livro.UpdateLivroRequest;
-import libraryfree.app.service.LivroService;
+import libraryfree.app.service.acervo.LivroService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;

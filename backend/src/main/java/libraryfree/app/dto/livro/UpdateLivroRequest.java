@@ -9,7 +9,7 @@ public record UpdateLivroRequest(
         @Length(max = 20, message = "O tamanho máximo é 20 caracteres.")
         String isbn,
 
-        @Length(min = 1, message = "O título não pode ser vazio.")
+        @Length(max = 255, message = "O título deve ter no máximo 255 caracteres.")
         String titulo,
 
         @Positive(message = "O ano não pode ser negativo.")

@@ -13,6 +13,7 @@ public record CreateLivroRequest(
         String isbn,
 
         @NotBlank(message = "O título é obrigatório.")
+        @Length(max = 255, message = "O título deve ter no máximo 255 caracteres.")
         String titulo,
 
         @Positive(message = "O ano não pode ser negativo.")

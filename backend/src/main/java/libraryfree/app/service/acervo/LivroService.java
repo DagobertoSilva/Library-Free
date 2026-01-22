@@ -1,4 +1,4 @@
-package libraryfree.app.service;
+package libraryfree.app.service.acervo;
 
 import libraryfree.app.domain.acervo.Autor;
 import libraryfree.app.domain.acervo.Editora;
