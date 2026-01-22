@@ -2,6 +2,7 @@ package libraryfree.app.service;
 
 import libraryfree.app.domain.usuario.Bibliotecario;
 import libraryfree.app.domain.usuario.Usuario;
+import libraryfree.app.dto.bibliotecario.BibliotecarioResponse;
 import libraryfree.app.dto.bibliotecario.CreateBibliotecarioRequest;
 import libraryfree.app.enumerator.TipoUsuario;
 import libraryfree.app.repository.usuario.BibliotecarioRepository;
@@ -19,13 +20,20 @@ public class BibliotecarioService {
     }
 
     @Transactional
-    public void create(CreateBibliotecarioRequest request){
+    public BibliotecarioResponse create(CreateBibliotecarioRequest request) {
         Usuario usuario = usuarioService.create(request.email(), request.senha(), TipoUsuario.BIBLIOTECARIO);
 
         Bibliotecario bibliotecario = new Bibliotecario();
         bibliotecario.setNome(request.nome());
         bibliotecario.setUsuario(usuario);
 
-        bibliotecarioRepository.save(bibliotecario);
+        Bibliotecario bibliotecarioSalvo = bibliotecarioRepository.save(bibliotecario);
+
+        return new BibliotecarioResponse(
+                bibliotecarioSalvo.getId(),
+                bibliotecarioSalvo.getNome(),
+                usuario.getEmail(),
+                usuario.getTipo().name()
+        );
     }
 }
