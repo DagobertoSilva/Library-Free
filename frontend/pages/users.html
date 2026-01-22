@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Free | Alunos</title>
+    <link rel="icon" href="../img/book.svg" type="image/svg+xml"">
+    <link rel=" stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <ul class="menu-list">
+                <li><a href="./home.html" class="menu-item home" aria-label="Página inicial"><img src="../img/home.svg"
+                            alt="""></a></li>
+                <li><a href=" ./books.html" class="menu-item text">Livros</a></li>
+                <li><a href="./users.html" class="menu-item active text">Alunos</a></li>
+                <li><a href="#" class="menu-item exit">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="title">Controle de Alunos</h1>
+        <h2 class="subtitle">Library Free</h2>
+    </main>
+    <section class="container">
+        <form action="#" class="search-form" id="search-form">
+            <input type="text" id="search-input" placeholder="Procure por nome." class="search-form-input">
+            <button class="search-form-button" id="search-button">
+            </button>
+        </form>
+    </section>
+    <section class="container">
+        <button class="btn-add" id="btn-add">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_146_439)">
+                    <path
+                        d="M7.99992 5.33331V10.6666M5.33325 7.99998H10.6666M14.6666 7.99998C14.6666 11.6819 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6819 1.33325 7.99998C1.33325 4.31808 4.31802 1.33331 7.99992 1.33331C11.6818 1.33331 14.6666 4.31808 14.6666 7.99998Z"
+                        stroke="#02542D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                    <clipPath id="clip0_146_439">
+                        <rect width="16" height="16" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>
+            <p>Novo</p>
+        </button>
+        <table class="table">
+            <thead class="table-head">
+                <tr>
+                    <th>MATRÍCULA</th>
+                    <th>NOME</th>
+                    <th>CPF</th>
+                    <th>STATUS</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button id="btn-previous">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E"
+                        stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Anterior</p>
+            </button>
+            </button>
+            <span id="page-index"></span>
+            <button id="btn-next">
+                <p>Próximo</p>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E"
+                        stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </section>
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <button type="button" class="close-button">&times;</button>
+            <h2 id="confirmModalTitle"></h2>
+            <p id="confirmModalBody" class="book-title-modal"></p>
+            <div class="modal-actions">
+                <button type="button" class="btn-positive" id="confirmModalCancel">Não</button>
+                <button type="button" class="btn-warning" id="confirmModalConfirm">Sim</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="copyright">
+            <p>© Copyright - 2005</p>
+            <p>Library Free - Open Source</p>
+        </div>
+    </footer>
+</body>
+<script type="module" src="../javascript/main.js"></script>
+<script type="module" src="../javascript/pages/users.js"></script>
+
+</html>
