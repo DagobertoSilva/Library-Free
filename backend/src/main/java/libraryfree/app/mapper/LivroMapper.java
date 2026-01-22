@@ -15,6 +15,9 @@ import java.util.Set;
 public interface LivroMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "quantidadeDisponivel", ignore = true)
+    @Mapping(target = "editora", source = "editora")
+    @Mapping(target = "autores", source = "autores")
+    @Mapping(target = "generos", source = "generos")
     Livro toEntity(CreateLivroRequest request, Editora editora, Set<Autor> autores, Set<Genero> generos);
 
     @AfterMapping

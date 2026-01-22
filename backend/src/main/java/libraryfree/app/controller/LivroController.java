@@ -25,6 +25,7 @@ public class LivroController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('BIBLIOTECARIO')")
     public ResponseEntity<LivroResponse> create(@Valid @RequestBody CreateLivroRequest request){
         LivroResponse response = livroService.create(request);
 
@@ -71,5 +72,12 @@ public class LivroController {
     public ResponseEntity<LivroResponse> update(@PathVariable Long id, @RequestBody @Valid UpdateLivroRequest request) {
         LivroResponse response = livroService.update(id, request);
         return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('BIBLIOTECARIO')")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        livroService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
