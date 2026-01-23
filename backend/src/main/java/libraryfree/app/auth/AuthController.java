@@ -4,10 +4,7 @@ import jakarta.validation.Valid;
 import libraryfree.app.dto.login.LoginRequest;
 import libraryfree.app.dto.login.LoginResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -21,6 +18,12 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request){
         LoginResponse response = authService.login(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<LoginResponse> recuperarUsuarioLogado() {
+        LoginResponse response = authService.recuperarUsuarioLogado();
         return ResponseEntity.ok(response);
     }
 }
