@@ -105,7 +105,7 @@ CREATE TABLE emprestimo (
   CONSTRAINT fk_emprestimo_turma FOREIGN KEY (turma_id) REFERENCES turma(id) ON DELETE RESTRICT
 );
 
--- Senha hasheada utilizand Bcrypt fator de custo 10, senha real: Libraryfree123!
+-- Senha hasheada utilizando Bcrypt fator de custo 10, senha real: Libraryfree123!
 INSERT INTO usuario (email, senha, tipo) 
 VALUES ('admin@library.com', '$2a$10$97WYtlkULJBaLz4Oc31M6OR9PbLMpcnhtqKWxUI1MlHIJh/1lLu9u', 'BIBLIOTECARIO');
 

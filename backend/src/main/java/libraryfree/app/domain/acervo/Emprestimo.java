@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,7 +25,7 @@ public class Emprestimo {
     private LocalDateTime dataEmprestimo;
 
     @Column(name = "prazo_devolucao", nullable = false)
-    private LocalDateTime prazoDevolucao;
+    private LocalDate prazoDevolucao;
 
     @Column(name = "data_devolucao")
     private LocalDateTime dataDevolucao;
@@ -40,4 +41,12 @@ public class Emprestimo {
     @ManyToOne
     @JoinColumn(name = "turma_id", nullable = false)
     private Turma turma;
+
+    public Emprestimo(Livro livro, Aluno aluno, int diasPrazo) {
+        this.livro = livro;
+        this.aluno = aluno;
+        this.dataEmprestimo = LocalDateTime.now();
+        this.prazoDevolucao = LocalDate.now().plusDays(diasPrazo);
+        this.turma = aluno.getTurma();
+    }
 }
