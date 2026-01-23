@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: libraryfree-db
+    restart: always
+    environment:
+      POSTGRES_DB: libraryfree_db
+      POSTGRES_USER: libraryfree_user
+      POSTGRES_PASSWORD: libraryfree_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: libraryfree-backend
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/libraryfree_db
+      SPRING_DATASOURCE_USERNAME: libraryfree_user
+      SPRING_DATASOURCE_PASSWORD: libraryfree_password
+      API_SECURITY_TOKEN_SECRET: "27fbb44da81ebe00ce8ec510c794587e92f805aaac3d0478169fe030ff6f6380" 
+      API_SECURITY_TOKEN_ISSUER: "library-free-api"
+      
+volumes:
+  postgres_data:
