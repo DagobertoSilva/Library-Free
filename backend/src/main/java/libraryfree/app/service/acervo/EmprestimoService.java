@@ -10,6 +10,8 @@ import libraryfree.app.exception.RecursoNaoEncontradoException;
 import libraryfree.app.repository.acervo.EmprestimoRepository;
 import libraryfree.app.repository.acervo.LivroRepository;
 import libraryfree.app.repository.usuario.AlunoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -67,5 +69,11 @@ public class EmprestimoService {
 
         livroRepository.save(livro);
         emprestimoRepository.save(emprestimo);
+    }
+
+    @Transactional
+    public Page<EmprestimoResponse> findAll(Pageable pageable) {
+        return emprestimoRepository.findAll(pageable)
+                .map(EmprestimoResponse::new);
     }
 }
