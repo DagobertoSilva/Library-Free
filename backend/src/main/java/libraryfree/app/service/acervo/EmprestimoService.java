@@ -71,9 +71,22 @@ public class EmprestimoService {
         emprestimoRepository.save(emprestimo);
     }
 
-    @Transactional
-    public Page<EmprestimoResponse> findAll(Pageable pageable) {
-        return emprestimoRepository.findAll(pageable)
+    @Transactional(readOnly = true)
+    public Page<EmprestimoResponse> findAll(String nomeAluno, String tituloLivro, Pageable pageable) {
+        
+        String filtroAluno = null;
+        if (nomeAluno != null && !nomeAluno.isBlank()) {
+            // Adicionei .toLowerCase() aqui
+            filtroAluno = "%" + nomeAluno.toLowerCase() + "%";
+        }
+
+        String filtroLivro = null;
+        if (tituloLivro != null && !tituloLivro.isBlank()) {
+            // Adicionei .toLowerCase() aqui
+            filtroLivro = "%" + tituloLivro.toLowerCase() + "%";
+        }
+
+        return emprestimoRepository.findByFiltros(filtroAluno, filtroLivro, pageable)
                 .map(EmprestimoResponse::new);
     }
 }

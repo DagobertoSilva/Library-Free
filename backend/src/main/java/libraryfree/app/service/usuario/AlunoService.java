@@ -49,6 +49,13 @@ public class AlunoService {
         return new AlunoResponse(aluno);
     }
 
+    @Transactional()
+    public AlunoResponse findById(Long id) {
+        return alunoRepository.findById(id)
+                .map(AlunoResponse::new)
+                .orElseThrow(() -> new RecursoNaoEncontradoException("Aluno não encontrado."));
+    }
+
     public Page<AlunoResponse> findAll(Long cursoId, Long turmaId, Pageable pageable) {
         return alunoRepository.findAllWithFilters(cursoId, turmaId, pageable).map(AlunoResponse::new);
     }

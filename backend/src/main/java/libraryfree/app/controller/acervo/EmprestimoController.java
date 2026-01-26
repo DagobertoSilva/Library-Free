@@ -45,10 +45,12 @@ public class EmprestimoController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('BIBLIOTECARIO'")
+    @PreAuthorize("hasAnyRole('BIBLIOTECARIO', 'ALUNO')")
     public ResponseEntity<Page<EmprestimoResponse>> listarTodos(
+            @RequestParam(required = false) String nomeAluno,
+            @RequestParam(required = false) String tituloLivro,
             @PageableDefault(size = 8, sort = "dataEmprestimo", direction = Sort.Direction.DESC) Pageable pageable
     ) {
-        return ResponseEntity.ok(emprestimoService.findAll(pageable));
+        return ResponseEntity.ok(emprestimoService.findAll(nomeAluno, tituloLivro, pageable));
     }
 }

@@ -38,6 +38,12 @@ public class AlunoController {
         return ResponseEntity.created(location).body(response);
     }
 
+    @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole('BIBLIOTECARIO')")
+    public ResponseEntity<AlunoResponse> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(alunoService.findById(id));
+    }
+
     @GetMapping
     @PreAuthorize("hasAnyRole('BIBLIOTECARIO')")
     public ResponseEntity<Page<AlunoResponse>> findAll(

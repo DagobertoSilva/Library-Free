@@ -97,12 +97,12 @@ public class LivroService {
 
     @Transactional
     public Page<LivroResponse> buscarPorAutor(String nomeAutor, Pageable pageable) {
-        return livroRepository.findDistinctByAutores_NomeContainingIgnoreCase(nomeAutor, pageable).map(livroMapper::toResponse);
+        return livroRepository.buscarPorNomeAutor(nomeAutor, pageable).map(livroMapper::toResponse);
     }
 
     @Transactional
     public Page<LivroResponse> buscarPorGenero(String nomeGenero, Pageable pageable) {
-        return livroRepository.findDistinctByGeneros_NomeContainingIgnoreCase(nomeGenero, pageable).map(livroMapper::toResponse);
+        return livroRepository.buscarPorNomeGenero(nomeGenero, pageable).map(livroMapper::toResponse);
     }
 
     @Transactional
