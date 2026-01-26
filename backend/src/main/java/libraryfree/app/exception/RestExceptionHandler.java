@@ -2,6 +2,7 @@ package libraryfree.app.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import libraryfree.app.dto.erro.ErroResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @RestControllerAdvice
 public class RestExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -99,6 +101,12 @@ public class RestExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErroResponse> handleGenerico(Exception exception, HttpServletRequest request) {
+        log.error("ERRO 500 NÃO TRATADO na rota: {} | Mensagem: {}",
+                request.getRequestURI(),
+                exception.getMessage(),
+                exception
+        );
+
         ErroResponse response = new ErroResponse(
                 Instant.now(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),

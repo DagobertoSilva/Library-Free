@@ -93,7 +93,7 @@ CREATE TABLE livro_genero (
 CREATE TABLE emprestimo (
   id BIGSERIAL PRIMARY KEY,
   data_emprestimo TIMESTAMP NOT NULL DEFAULT current_timestamp,
-  prazo_devolucao TIMESTAMP NOT NULL,
+  prazo_devolucao DATE NOT NULL,
   data_devolucao TIMESTAMP,
   
   livro_id BIGINT NOT NULL,
