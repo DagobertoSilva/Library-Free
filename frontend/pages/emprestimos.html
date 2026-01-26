@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Free | Empréstimos</title>
+    <link rel="icon" href="../img/book.svg" type="image/svg+xml">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos específicos para esta página */
+        body { background-color: white; }
+        
+        /* Ajuste da Tabela */
+        .table-custom thead th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6c757d;
+            border-bottom: 1px solid #dee2e6;
+            background-color: transparent;
+            padding-bottom: 12px;
+        }
+        
+        .table-custom tbody td {
+            font-size: 0.9rem;
+            color: #212529;
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        /* Botões de Ação Redondos */
+        .btn-action {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-action svg { width: 18px; height: 18px; }
+        
+        .btn-action-return { background-color: #cfe2ff; color: #084298; } /* Azul */
+        .btn-action-return:hover { background-color: #b6d4fe; }
+
+        /* Badge de Status */
+        .badge-status {
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        .badge-status.pending { background-color: #fff3cd; color: #856404; }
+        .badge-status.returned { background-color: #d1e7dd; color: #0f5132; }
+
+        /* Paginação */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pagination button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1E1E1E;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            opacity: 0.7;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        #page-index {
+            font-weight: 500;
+            color: #ffffff;
+            background-color: #1E1E1E;
+            min-width: 40px;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+        }
+
+        /* Modal Customizado */
+        .custom-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .custom-modal-box {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .custom-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6c757d;
+        }
+
+        .custom-close-btn:hover {
+            color: #212529;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <ul class="menu-list">
+                <li><a href="./books.html" class="menu-item text">Livros</a></li>
+                <li><a href="./users.html" class="menu-item text">Alunos</a></li>
+                <li><a href="./emprestimos.html" class="menu-item active text">Empréstimos</a></li>
+                <li><a href="#" class="menu-item exit">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="title">Histórico de Empréstimos</h1>
+        <h2 class="subtitle">Library Free</h2>
+    </main>
+
+    <div class="container">
+        <div class="card border-0 rounded-3">
+            <div class="card-body p-4">
+                
+                <div class="row g-3 mb-4 align-items-center">
+                    <div class="col-md-8">
+                        <form id="search-form" class="position-relative">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="btn-filter-type">
+                                    Título do Livro
+                                </button>
+                                <ul class="dropdown-menu" id="filter-options">
+                                    <li><a class="dropdown-item active" href="#" data-type="tituloLivro">Título do Livro</a></li>
+                                    <li><a class="dropdown-item" href="#" data-type="nomeAluno">Nome do Aluno</a></li>
+                                </ul>
+                                
+                                <input type="text" id="search-input" class="form-control" placeholder="Digite para buscar...">
+                                
+                                <button class="btn btn-outline-secondary" type="submit" id="search-button">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle table-custom">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 25%;">LIVRO</th>
+                                <th scope="col" style="width: 20%;">ALUNO</th>
+                                <th scope="col" style="width: 18%;">DATA EMPRÉSTIMO</th>
+                                <th scope="col" style="width: 18%;">PRAZO DEVOLUÇÃO</th>
+                                <th scope="col" style="width: 12%;">STATUS</th>
+                                <th scope="col" style="width: 7%; text-align: center;">AÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body"></tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button id="btn-previous">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <p>Anterior</p>
+                    </button>
+                    <span id="page-index"></span>
+                    <button id="btn-next">
+                        <p>Próximo</p>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="returnModal" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <button type="button" class="custom-close-btn" id="closeReturnModalBtn">&times;</button>
+            
+            <h5 class="fw-bold mb-3" style="color: #000;">Confirmar Devolução</h5>
+            <p id="returnModalBody" class="text-secondary mb-4">Tem certeza que deseja devolver este livro?</p>
+            
+            <div class="d-flex justify-content-end gap-2">
+                <button type="button" class="btn text-white px-4" style="background-color: #00C851;" id="btnCancelReturn">
+                    Cancelar
+                </button>
+                <button type="button" class="btn text-white px-4" style="background-color: #0066cc;" id="btnConfirmReturn">
+                    Devolver
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer mt-5">
+        <div class="copyright text-center">
+            <p>© Copyright - 2005</p>
+            <p>Library Free - Open Source</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="module" src="../javascript/main.js"></script>
+    <script type="module" src="../javascript/pages/emprestimos.js"></script>
+</body>
+</html>
