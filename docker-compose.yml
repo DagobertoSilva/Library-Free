@@ -17,12 +17,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - libraryfree-network
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     container_name: libraryfree-backend
+    restart: always
     depends_on:
       postgres:
         condition: service_healthy
@@ -34,6 +37,25 @@ services:
       SPRING_DATASOURCE_PASSWORD: libraryfree_password
       API_SECURITY_TOKEN_SECRET: "27fbb44da81ebe00ce8ec510c794587e92f805aaac3d0478169fe030ff6f6380" 
       API_SECURITY_TOKEN_ISSUER: "library-free-api"
-      
+    networks:
+      - libraryfree-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: libraryfree-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "5051:80"
+    networks:
+      - libraryfree-network
+
 volumes:
   postgres_data:
+
+networks:
+  libraryfree-network:
+    driver: bridge
