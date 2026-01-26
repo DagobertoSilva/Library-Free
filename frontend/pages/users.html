@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Free | Alunos</title>
     <link rel="icon" href="../img/book.svg" type="image/svg+xml"">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel=" stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,16 +14,54 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
         rel="stylesheet">
 
-</head>
+    <style>
+        /* Modal Customizado */
+        .custom-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .custom-modal-box {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .custom-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6c757d;
+        }
+
+        .custom-close-btn:hover {
+            color: #212529;
+        }
+    </style></head>
 
 <body>
     <header class="container">
         <nav>
             <ul class="menu-list">
-                <li><a href="./home.html" class="menu-item home" aria-label="Página inicial"><img src="../img/home.svg"
-                            alt="""></a></li>
                 <li><a href=" ./books.html" class="menu-item text">Livros</a></li>
                 <li><a href="./users.html" class="menu-item active text">Alunos</a></li>
+                <li><a href="./emprestimos.html" class="menu-item text">Empréstimos</a></li>
                 <li><a href="#" class="menu-item exit">Sair</a></li>
             </ul>
         </nav>
@@ -32,13 +71,20 @@
         <h2 class="subtitle">Library Free</h2>
     </main>
     <section class="container">
-        <form action="#" class="search-form" id="search-form">
-            <input type="text" id="search-input" placeholder="Procure por nome." class="search-form-input">
-            <button class="search-form-button" id="search-button">
-            </button>
-        </form>
-    </section>
-    <section class="container">
+        <div class="row mb-4 align-items-end">
+            <div class="col-md-3">
+                <label for="course-select" class="form-label fw-bold">Curso:</label>
+                <select id="course-select" class="form-select">
+                    <option value="">Selecione um curso</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="class-select" class="form-label fw-bold">Turma:</label>
+                <select id="class-select" class="form-select" disabled>
+                    <option value="">Selecione uma turma</option>
+                </select>
+            </div>
+        </div>
         <button class="btn-add" id="btn-add">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_146_439)">
@@ -59,8 +105,8 @@
                 <tr>
                     <th>MATRÍCULA</th>
                     <th>NOME</th>
-                    <th>CPF</th>
-                    <th>STATUS</th>
+                    <th>CURSO</th>
+                    <th>TURMA</th>
                     <th>AÇÕES</th>
                 </tr>
             </thead>
@@ -86,14 +132,20 @@
             </button>
         </div>
     </section>
-    <div id="confirmModal" class="modal">
-        <div class="modal-content">
-            <button type="button" class="close-button">&times;</button>
-            <h2 id="confirmModalTitle"></h2>
-            <p id="confirmModalBody" class="book-title-modal"></p>
-            <div class="modal-actions">
-                <button type="button" class="btn-positive" id="confirmModalCancel">Não</button>
-                <button type="button" class="btn-warning" id="confirmModalConfirm">Sim</button>
+    <div id="confirmModal" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <button type="button" class="custom-close-btn" id="closeModalBtn">&times;</button>
+            
+            <h5 class="fw-bold mb-3" style="color: #000;">Deseja realmente apagar esse Aluno?</h5>
+            <p id="confirmModalBody" class="text-secondary mb-4">Nome do Aluno Aqui</p>
+            
+            <div class="d-flex justify-content-end gap-2">
+                <button type="button" class="btn text-white px-4" style="background-color: #00C851;" id="confirmModalCancel">
+                    Não
+                </button>
+                <button type="button" class="btn text-white px-4" style="background-color: #ff4444;" id="confirmModalConfirm">
+                    Sim
+                </button>
             </div>
         </div>
     </div>

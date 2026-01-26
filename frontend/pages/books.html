@@ -5,155 +5,281 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Free | Livros</title>
-    <link rel="icon" href="../img/book.svg" type="image/svg+xml"">
-    <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link rel="icon" href="../img/book.svg" type="image/svg+xml">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="../css/style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
 
+    <style>
+        /* Estilos específicos para esta página que o Bootstrap não cobre por padrão */
+        body { background-color: white; }
+        
+        /* Ajuste da Tabela */
+        .table-custom thead th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6c757d;
+            border-bottom: 1px solid #dee2e6;
+            background-color: transparent;
+            padding-bottom: 12px;
+        }
+        
+        .table-custom tbody td {
+            font-size: 0.9rem;
+            color: #212529;
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        /* Botões de Ação Redondos */
+        .btn-action {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-action svg { width: 18px; height: 18px; }
+        
+        .btn-action-edit { background-color: #fceea4; color: #8a6d3b; } /* Amarelo */
+        .btn-action-edit:hover { background-color: #fadd75; }
+        
+        .btn-action-delete { background-color: #f8d7da; color: #dc3545; } /* Vermelho */
+        .btn-action-delete:hover { background-color: #f5c6cb; }
+
+        /* Badge de Quantidade */
+        .badge-qty {
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        .badge-qty.available { background-color: #d1e7dd; color: #0f5132; }
+        .badge-qty.unavailable { background-color: #f8d7da; color: #842029; }
+
+        /* Estilo de foco da caixa de pesquisa */
+        #search-input:focus {
+            outline: none;
+            border-color: #86b7fe;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+        }
+
+        #search-input:focus-visible {
+            outline: none;
+            border-color: #86b7fe;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+        }
+
+        /* Paginação */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pagination button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1E1E1E;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            opacity: 0.7;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        #page-index {
+            font-weight: 500;
+            color: #ffffff;
+            background-color: #1E1E1E;
+            min-width: 40px;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+        }
+    </style>
 </head>
 
 <body>
     <header class="container">
         <nav>
             <ul class="menu-list">
-                <li><a href="./home.html" class="menu-item home" aria-label="Página inicial"><img src="../img/home.svg"
-                            alt=""></a></li>
                 <li><a href="./books.html" class="menu-item active text">Livros</a></li>
                 <li><a href="./users.html" class="menu-item text">Alunos</a></li>
+                <li><a href="./emprestimos.html" class="menu-item text">Empréstimos</a></li>
                 <li><a href="#" class="menu-item exit">Sair</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h1 class="title">Controle de Livros</h1>
+
+     <main>
+        <h1 class="title">Cadastro de Livros</h1>
         <h2 class="subtitle">Library Free</h2>
     </main>
-    <section class="container">
-        <form action="#" class="search-form" id="search-form">
-            <input type="text" id="search-input" placeholder="Procure por título." class="search-form-input">
-            <button class="search-form-button" id="search-button">
-            </button>
-        </form>
-    </section>
-    <section class="container">
-        <button class="btn-add" id="btn-add">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_146_439)">
-                    <path
-                        d="M7.99992 5.33331V10.6666M5.33325 7.99998H10.6666M14.6666 7.99998C14.6666 11.6819 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6819 1.33325 7.99998C1.33325 4.31808 4.31802 1.33331 7.99992 1.33331C11.6818 1.33331 14.6666 4.31808 14.6666 7.99998Z"
-                        stroke="#02542D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
-                <defs>
-                    <clipPath id="clip0_146_439">
-                        <rect width="16" height="16" fill="white" />
-                    </clipPath>
-                </defs>
-            </svg>
-            <p>Novo</p>
-        </button>
-        <table class="table">
-            <thead class="table-head">
-                <tr>
-                    <th>ISBN</th>
-                    <th>TÍTULO</th>
-                    <th>GÊNERO</th>
-                    <th>STATUS</th>
-                    <th>AÇÕES</th>
-                </tr>
-            </thead>
-            <tbody class="table-body">
-            </tbody>
-        </table>
-        <div class="pagination">
-            <button id="btn-previous">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E"
-                        stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <p>Anterior</p>
-            </button>
-            </button>
-            <span id="page-index"></span>
-            <button id="btn-next">
-                <p>Próximo</p>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E"
-                        stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </button>
-        </div>
 
-    </section>
+    <div class="container">
+        <div class="card border-0 rounded-3">
+            <div class="card-body p-4">
+                
+                <div class="row g-3 mb-4 align-items-center">
+                    <div class="col-md-8">
+                        <form id="search-form" class="position-relative">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="btn-filter-type">
+                                    Título
+                                </button>
+                                <ul class="dropdown-menu" id="filter-options">
+                                    <li><a class="dropdown-item active" href="#" data-type="titulo">Título</a></li>
+                                    <li><a class="dropdown-item" href="#" data-type="autor">Autor</a></li>
+                                    <li><a class="dropdown-item" href="#" data-type="genero">Gênero</a></li>
+                                </ul>
+                                
+                                <input type="text" id="search-input" class="form-control" placeholder="Digite para buscar...">
+                                
+                                <button class="btn btn-outline-secondary" type="submit" id="search-button">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <button class="btn btn-success px-4 py-2" id="btn-add">
+                            <span class="me-2">+</span>Novo Livro
+                        </button>
+                    </div>
+                </div>
 
-    <div id="reserveBookModal" class="modal">
-        <div class="modal-content">
-            <button type="button" class="close-button btn-clear-style">&times;</button>
-            <h2>Deseja emprestar esse livro?</h2>
-            <p class="book-title-modal"></p>
-            <form id="reserveForm">
-                <div class="form-group">
-                    <label for="userMatricula">Aluno</label>
-                    <div class="input-with-icon">
-                        <input type="text" id="userMatricula" placeholder="Matrícula do aluno">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
-                                stroke="#757575" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M17.5 17.5L14.1667 14.1667" stroke="#757575" stroke-width="1.6"
-                                stroke-linecap="round" stroke-linejoin="round" />
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle table-custom">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 15%;">ISBN</th>
+                                <th scope="col" style="width: 30%;">TÍTULO</th>
+                                <th scope="col" style="width: 20%;">AUTOR</th>
+                                <th scope="col" style="width: 15%;">GÊNERO</th>
+                                <th scope="col" style="width: 10%; text-align: center;">DISPONÍVEL</th>
+                                <th scope="col" style="width: 10%; text-align: center;">AÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body"></tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button id="btn-previous">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                    </div>
+                        <p>Anterior</p>
+                    </button>
+                    <span id="page-index"></span>
+                    <button id="btn-next">
+                        <p>Próximo</p>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.33325 8H12.6666M12.6666 8L7.99992 3.33334M12.6666 8L7.99992 12.6667" stroke="#1E1E1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="loanDate">Data de empréstimo</label>
-                        <div class="input-with-icon">
-                            <input type="date" id="loanDate" placeholder="Data de empréstimo">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="returnDate">Data de devolução</label>
-                        <div class="input-with-icon">
-                            <input type="date" id="returnDate" placeholder="Data de devolução" readonly>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button type="submit" class="btn-positive">Emprestar</button>
-                    <button type="button" class="btn-warning" id="cancel-reserve-button">Cancelar</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
-    <div id="confirmModal" class="modal">
-        <div class="modal-content">
-            <button type="button" class="close-button">&times;</button>
-            <h2 id="confirmModalTitle"></h2>
-            <p id="confirmModalBody" class="book-title-modal"></p>
-            <div class="modal-actions">
-                <button type="button" class="btn-positive" id="confirmModalCancel">Não</button>
-                <button type="button" class="btn-warning" id="confirmModalConfirm">Sim</button>
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="copyright">
+    <div id="customModal" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <button type="button" class="custom-close-btn" id="closeModalBtn">&times;</button>
+            
+            <h5 class="fw-bold mb-3" style="color: #000;">Deseja realmente apagar esse Livro?</h5>
+            <p id="modalBookTitle" class="text-secondary mb-4">Nome do Livro Aqui</p>
+            
+            <div class="d-flex justify-content-end gap-2">
+                <button type="button" class="btn text-white px-4" style="background-color: #00C851;" id="btnCancelCustom">
+                    Não
+                </button>
+                <button type="button" class="btn text-white px-4" style="background-color: #ff4444;" id="btnConfirmCustom">
+                    Sim
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="lendModal" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <button type="button" class="custom-close-btn" id="closeLendModalBtn">&times;</button>
+            
+            <h5 class="fw-bold mb-3" style="color: #000;">Emprestar Livro</h5>
+            <p id="lendBookTitle" class="text-secondary mb-4">Nome do Livro Aqui</p>
+            
+            <div class="mb-3">
+                <label class="form-label">Curso *</label>
+                <select id="lend-curso-select" class="form-select">
+                    <option value="">Selecione um curso</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Turma *</label>
+                <select id="lend-turma-select" class="form-select" disabled>
+                    <option value="">Selecione uma turma</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Aluno *</label>
+                <select id="lend-aluno-select" class="form-select" disabled>
+                    <option value="">Selecione um aluno</option>
+                </select>
+            </div>
+            
+            <div class="d-flex justify-content-end gap-2">
+                <button type="button" class="btn text-white px-4" style="background-color: #00C851;" id="btnCancelLend">
+                    Cancelar
+                </button>
+                <button type="button" class="btn text-white px-4" style="background-color: #0066cc;" id="btnConfirmLend">
+                    Emprestar
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer mt-5">
+        <div class="copyright text-center">
             <p>© Copyright - 2005</p>
             <p>Library Free - Open Source</p>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</body>
-<script type="module" src="../javascript/main.js"></script>
-<script type="module" src="../javascript/pages/books.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="module" src="../javascript/main.js"></script>
+    <script type="module" src="../javascript/pages/books.js"></script>
+</body>
 </html>
