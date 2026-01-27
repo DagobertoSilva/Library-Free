@@ -1,43 +1,57 @@
-version: '3.8'
-
 services:
-  db:
-    image: mariadb:10.6
+  postgres:
+    image: postgres:16
     container_name: libraryfree-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: LibraryFree
-      MYSQL_USER: joao
-      MYSQL_PASSWORD: ${DB_USER_PASSWORD}
+      POSTGRES_DB: libraryfree_db
+      POSTGRES_USER: libraryfree_user
+      POSTGRES_PASSWORD: libraryfree_password
     ports:
-      - "3307:3306"
+      - "5432:5432"
     volumes:
-      - mariadb_data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U libraryfree_user -d libraryfree_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - libraryfree-network
 
-  app:
-    image: joaomnz/library-free-app:latest
-    container_name: libraryfree-app
-    restart: on-failure
+  backend:
+    image: joaomnz/libraryfree-backend:v1
+    container_name: libraryfree-backend
+    restart: always
     depends_on:
-      - db
+      postgres:
+        condition: service_healthy
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/LibraryFree?tinyInt1isBit=false
-      SPRING_DATASOURCE_USERNAME: joao
-      SPRING_DATASOURCE_PASSWORD: ${DB_USER_PASSWORD}
-      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
-      
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/libraryfree_db
+      SPRING_DATASOURCE_USERNAME: libraryfree_user
+      SPRING_DATASOURCE_PASSWORD: libraryfree_password
+      API_SECURITY_TOKEN_SECRET: "27fbb44da81ebe00ce8ec510c794587e92f805aaac3d0478169fe030ff6f6380" 
+      API_SECURITY_TOKEN_ISSUER: "library-free-api"
+    networks:
+      - libraryfree-network
+
   frontend:
-    image: joaomnz/library-free-frontend:latest
+    image: joaomnz/libraryfree-frontend:v1
     container_name: libraryfree-frontend
-    restart: unless-stopped
-    ports:
-      - "5500:80"
+    restart: always
     depends_on:
-      - app
-      
+      - backend
+    ports:
+      - "5051:80"
+    networks:
+      - libraryfree-network
+
 volumes:
-  mariadb_data:
+  postgres_data:
+
+networks:
+  libraryfree-network:
+    driver: bridge

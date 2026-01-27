@@ -1,111 +1,68 @@
 import { fetchData } from '../services/fetch.js';
-export function createPaginatedTable(config){
-    let dataList = [];
-    let currentPage = 1;
-    let lastPage = 1;
-    let dataPerPage = 8;
-    
-    const tableBody = document.querySelector(".table-body");
-    const prevButton = document.querySelector("#btn-previous");
-    const pageIndex = document.querySelector("#page-index")
-    const nextButton = document.querySelector("#btn-next");
-    const searchForm = document.querySelector("#search-form");
-    const searchInput = document.querySelector("#search-input");
-    const searchButton = document.querySelector("#search-button");
-    
-    async function init(){
-        await updateDataList(config.source.url, config.source.options);
-        updatePageStates();
-        setupPagination();
-        setupSearch();
-    }
-    init();
 
-    async function updateDataList(url, options){
-        const { data, error} = await fetchData(url,options);
-        if(error){
-            alert("Erro ao carregar dados.");
-        }else{
-            dataList = data;
-            currentPage = 1;
-            lastPage = Math.ceil(dataList.length / dataPerPage);
-            updatePageStates();
-            paginateData();
+export async function createPaginatedTable(config) {
+    const state = {
+        currentPage: 0,
+        totalPages: 0,
+        currentQuery: null,
+    };
+
+    const dom = {
+        tableBody: document.querySelector(".table-body"),
+        prevButton: document.querySelector("#btn-previous"),
+        nextButton: document.querySelector("#btn-next"),
+        pageIndex: document.querySelector("#page-index"),
+        searchForm: document.querySelector("#search-form"),
+        searchInput: document.querySelector("#search-input"),
+    };
+
+    async function loadData(page = 0, query = null) {
+        state.currentPage = page;
+        state.currentQuery = query;
+
+        // Decisão de qual serviço chamar (busca ou listagem)
+        const request = query 
+            ? config.onFilter(query, page) 
+            : config.onLoad(page);
+
+        const { data, error } = await fetchData(request.url, request.options);
+
+        if (error) {
+            alert("Erro ao carregar dados: " + (error.message || "Erro desconhecido"));
+            return;
         }
-        
+
+        // No Spring, os dados vêm dentro de 'content'
+        state.totalPages = data.totalPages;
+        render(data.content || []);
+        updateUI();
     }
 
-    function updatePageStates(){
-        pageIndex.textContent = currentPage;
-        prevButton.disabled = currentPage === 1;
-        nextButton.disabled = currentPage === lastPage || lastPage === 0;
+    function render(items) {
+        dom.tableBody.innerHTML = items.length > 0 
+            ? items.map(item => `<tr>${config.renderRow(item)}</tr>`).join('')
+            : `<tr><td colspan="6" style="text-align:center; padding: 2rem; color: #6c757d;">Nenhum registro encontrado.</td></tr>`; 
     }
 
-    function setupPagination(){
-        prevButton.addEventListener("click", () => {
-            if(currentPage > 1){
-                currentPage--;
-                updatePageStates();
-                paginateData();
-            }
-        });
-        nextButton.addEventListener("click", () => {
-            if(currentPage < lastPage){
-                currentPage++;
-                updatePageStates();
-                paginateData();
-            }
-        });
+    function updateUI() {
+        dom.pageIndex.textContent = state.currentPage + 1;
+        dom.prevButton.disabled = state.currentPage === 0;
+        dom.nextButton.disabled = state.currentPage >= state.totalPages - 1 || state.totalPages === 0;
     }
 
-    function paginateData(){
-        const startIndex = (currentPage - 1) * dataPerPage;
-        const endIndex = startIndex + dataPerPage;
-        const paginatedData = dataList.slice(startIndex, endIndex);
-        renderTableData(paginatedData);
+    // Eventos de Navegação
+    dom.prevButton.onclick = () => loadData(state.currentPage - 1, state.currentQuery);
+    dom.nextButton.onclick = () => loadData(state.currentPage + 1, state.currentQuery);
+
+    // Evento de Busca
+    if (dom.searchForm) {
+        dom.searchForm.onsubmit = (e) => {
+            e.preventDefault();
+            const term = dom.searchInput.value.trim();
+            loadData(0, term || null);
+        };
     }
 
-    function renderTableData(paginatedData){
-        tableBody.innerHTML = "";
-        paginatedData.forEach(data => {
-            const tableRow = document.createElement('tr');
-            tableRow.innerHTML = config.renderRow(data);
-            tableBody.appendChild(tableRow);
-        });
-    }
-
-    function setupSearch(){
-        let isSearchActive = false;
-        const search = `
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14.0001 14L11.1001 11.1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>    
-            <p>Buscar</p>
-        `
-        const clear = `
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>   
-            <p>Limpar</p>
-        `
-        searchButton.innerHTML = search;
-        searchForm.addEventListener("submit", handleSubmit);
-        function handleSubmit(event){
-            event.preventDefault();
-            if(isSearchActive){
-                isSearchActive = false;
-                searchInput.value = "";
-                searchButton.innerHTML = search;
-                updateDataList(config.source.url, config.source.options);
-            }else{
-                if(searchInput.value){
-                    isSearchActive = true;
-                    const { url , options } = config.filterData(searchInput.value);
-                    updateDataList(url, options);
-                    searchButton.innerHTML = clear;
-                }else{
-                    return;
-                }
-            }
-        }
-    }
+    // Inicialização
+    await loadData(0);
 }

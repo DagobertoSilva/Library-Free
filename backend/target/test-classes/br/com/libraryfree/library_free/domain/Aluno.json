@@ -1,8 +1,0 @@
-{
-  "id": 1,
-  "nome": "Fulano",
-  "matricula": "202501001",
-  "cpf": "12345678900",
-  "ativo": true,
-  "emprestimos": []
-}
