@@ -21,9 +21,7 @@ services:
       - libraryfree-network
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: joaomnz/libraryfree-backend:v1
     container_name: libraryfree-backend
     restart: always
     depends_on:
@@ -41,9 +39,7 @@ services:
       - libraryfree-network
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: joaomnz/libraryfree-frontend:v1
     container_name: libraryfree-frontend
     restart: always
     depends_on:
