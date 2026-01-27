@@ -1,47 +1,127 @@
 # Library Free
 
-Este projeto, desenvolvido para a disciplina de Projeto Integrador I, do curso de Ciência da Computação da Universidade Federal do Ceará - Campus Crateús, tem como objetivo aplicar os conhecimentos adquiridos ao longo da graduação na construção de uma solução real e com impacto social.
+Este projeto foi desenvolvido para a disciplina de **Projeto Integrador I e II**, do curso de **Ciência da Computação** da **Universidade Federal do Ceará – Campus Crateús**, com o objetivo de aplicar os conhecimentos adquiridos ao longo da graduação na construção de uma solução real e com impacto social.
 
-## Utilizando a aplicação
+O **Library Free** é um sistema de gerenciamento de bibliotecas voltado para instituições de ensino, permitindo o controle de acervo, usuários e empréstimos de forma informatizada, segura e eficiente.
+
+---
+
+## Funcionalidades do Sistema
+
+- Autenticação de bibliotecário
+- Cadastro, leitura, edição e exclusão de livros
+- Cadastro, leitura, edição e exclusão de alunos
+- Consulta ao acervo por título, autor ou gênero
+- Controle de empréstimos e devoluções
+- Controle automático de disponibilidade de exemplares
+
+---
+
+## Tecnologias Utilizadas
+
+### Front-end
+-   HTML5
+-   CSS3
+-   JavaScript
+-   Bootstrap
+    
+
+### Back-end
+-   Java
+-   Spring Boot
+    
+### Banco de Dados
+-   PostgreSQL
+    
+
+### Infraestrutura
+-   Docker
+-   Docker Compose
+-   Maven
+-   NGINX
+
+---
+
+## Guia de instalação
 
 ### Pré-requisitos
-* Docker
 
-### Configuração
-1. Crie um novo diretório para o projeto.
-2. Baixe os arquivos docker-compose.yml e init.sql para este novo diretório.
-3. No mesmo diretório, crie um arquivo chamado .env.
-4. Preencha o arquivo .env com as seguintes variáveis, atribuindo seus próprios valores seguros:
+- Docker
+- Docker Compose
 
-```bash
-DB_ROOT_PASSWORD=
-DB_USER_PASSWORD=
-```
+---
 
-### Executando a aplicação
-1. Abra um terminal no diretório raiz do projeto.
-2. Execute o seguinte comando para construir as imagens e iniciar os contêineres:
+### 1. Clonar o repositório
 
 ```bash
-docker-compose up -d --build
+git clone https://github.com/DagobertoSilva/Library-Free.git
+cd Library-Free
 ```
 
-3. Após os contêineres iniciarem, acesse a aplicação no seu navegador através do seguinte link:
-
+### 2. Executando a aplicação
+    
 ```bash
-http://127.0.0.1:5500/pages/login.html
+docker-compose up -d
 ```
 
-4. Utilize as seguintes credenciais de teste para acessar o sistema:
-* Email: admin@libraryfree.com
-* Senha: libraryfree
-
-### Parando a aplicação
-1. Para parar e remover os contêineres, execute o seguinte comando no diretório raiz do projeto:
-
+### 3. Acesse a aplicação no navegador
+    
 ```bash
-docker-compose down
+http://localhost:5051
 ```
+### 4. Utilize as credenciais de teste
+    
+-   **Email:** admin@library.com
+-   **Senha:** Libraryfree123!
+    
+----------
+
+## Estrutura do Projeto
+```
+.
+|-- backend                      <- Aplicação Spring Boot (API)
+|   |-- src
+|   |   `-- main
+|   |       |-- java/libraryfree/app
+|   |       |   |-- auth         <- Lógica de autenticação
+|   |       |   |-- controller   <- Endpoints da API (REST)
+|   |       |   |-- domain       <- Entidades do banco de dados (JPA)
+|   |       |   |-- dto          <- Data Transfer Objects
+|   |       |   |-- enumerator   <- Enums do sistema
+|   |       |   |-- exception    <- Tratamento de erros customizados
+|   |       |   |-- mapper       <- Conversores (Entity <-> DTO)
+|   |       |   |-- repository   <- Interfaces de acesso a dados
+|   |       |   |-- security     <- Configurações de segurança (Spring Security)
+|   |       |   |-- service      <- Regras de negócio
+|   |       |   `-- LibraryFreeApplication.java <- Classe principal
+|   |       `-- resources
+|   |           `-- application.properties <- Configurações do Spring
+|   |-- .gitignore               <- Arquivos ignorados pelo Git no backend
+|   |-- Dockerfile               <- Instruções para criar a imagem Java
+|   |-- mvnw / mvnw.cmd          <- Wrappers do Maven
+|   `-- pom.xml                  <- Dependências do projeto (Maven)
+|
+|-- database                     <- Scripts de banco de dados
+|   `-- init.sql                 <- Script inicial
+|
+|-- frontend                     <- Aplicação Web
+|   |-- .vscode                  <- Configurações do editor
+|   |-- css                      <- Arquivos css
+|   |-- img                      <- Imagens
+|   |-- javascript               <- Arquivos JavaScript
+|   |-- pages                    <- Arquivos HTML
+|   |-- .gitignore               <- Arquivos ignorados pelo Git no frontend
+|   |-- Dockerfile               <- Instruções para criar a imagem docker
+|   `-- nginx.conf               <- Configuração do servidor web reverso
+|
+|-- docker-compose.yml           <- Orquestração dos containers
+|-- LICENSE                      <- Licença do projeto
+`-- README.md                    <- Este arquivo
+```
+
+----------
 
 ## Documentação
-[Documentação Técnica (PDF)](https://drive.google.com/file/d/11JwY8qXcqxmH8D-NBH5pFenq646Fr6po/view?usp=sharing)
+
+**Documentação Técnica (PDF):**  
+[https://drive.google.com/file/d/11JwY8qXcqxmH8D-NBH5pFenq646Fr6po/view](https://drive.google.com/file/d/11JwY8qXcqxmH8D-NBH5pFenq646Fr6po/view)
