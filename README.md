@@ -123,4 +123,4 @@ http://localhost:5051
 
 ## Documentação
 
-[Documentação Técnica (PDF)](https://drive.google.com/file/d/1vwcsn1PwyPpeR9MhCIIEXNs7v5aye57O/view)
+[Documentação Técnica (PDF)](https://drive.google.com/file/d/1VeaBo6c_P63AZxovznYwE8ND-pUU9ONK/view?usp=drive_link)
